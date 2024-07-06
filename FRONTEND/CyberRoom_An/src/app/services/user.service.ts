@@ -29,4 +29,12 @@ export class UserService {
     });
     return this.http.post<any>(`${this.apiUrl}/logout/`, { refresh_token: refreshToken }, { headers });
   }
+
+  edit(userData: User): Observable<User> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+    });
+    return this.http.put<User>(`${this.apiUrl}/edit/`, userData, { headers });
+  }
 }
