@@ -37,4 +37,19 @@ export class UserService {
     });
     return this.http.put<User>(`${this.apiUrl}/edit/`, userData, { headers });
   }
+
+  getProfile(): Observable<User> {
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      });
+      return this.http.get<User>(`${this.apiUrl}/profile/`, { headers });
+    } else {
+      return new Observable(observer => {
+        observer.error('No access token found');
+      });
+    }
+  }
 }
