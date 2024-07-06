@@ -21,4 +21,12 @@ export class UserService {
   login(credentials: { username: string; password: string }): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login/`, credentials);
   }
+
+  logout(refreshToken: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+    });
+    return this.http.post<any>(`${this.apiUrl}/logout/`, { refresh_token: refreshToken }, { headers });
+  }
 }
