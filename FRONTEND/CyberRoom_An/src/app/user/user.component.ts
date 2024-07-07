@@ -48,4 +48,15 @@ export class UserComponent {
       }
     );
   }
+
+  register(): void {
+    this.userService.register(this.user).subscribe(
+      (response) => {
+        console.log('Registro exitoso:', response);
+      },
+      (error) => {
+        console.error('Error en el registro:', error);
+      }
+    );
+  }
 }
