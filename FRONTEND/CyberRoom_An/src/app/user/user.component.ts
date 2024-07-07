@@ -31,9 +31,10 @@ export class UserComponent {
   };
   refreshToken = '';
 
-  constructor() { }
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
+    this.getUserProfile();
   }
 
 }
