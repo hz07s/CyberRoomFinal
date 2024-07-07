@@ -7,3 +7,11 @@
   <input type="password" [(ngModel)]="user.confirmPassword" name="confirmPassword" placeholder="Confirmar contraseña">
   <button type="submit">Registrar</button>
 </form>
+
+<!-- Inicio de sesión -->
+<h2>Iniciar sesión</h2>
+<form (ngSubmit)="login()">
+  <input type="text" [(ngModel)]="credentials.username" name="username" placeholder="Nombre de usuario">
+  <input type="password" [(ngModel)]="credentials.password" name="password" placeholder="Contraseña">
+  <button type="submit">Iniciar sesión</button>
+</form>
