@@ -37,4 +37,15 @@ export class UserComponent {
     this.getUserProfile();
   }
 
+  getUserProfile(): void {
+    this.userService.getProfile().subscribe(
+      (response) =>  {
+        this.editedUser = response;
+      },
+      (error) => {
+        console.error('Error al obtener el perfil del usuario:', error);
+        
+      }
+    );
+  }
 }
