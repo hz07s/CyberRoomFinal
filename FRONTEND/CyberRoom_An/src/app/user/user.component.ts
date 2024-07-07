@@ -75,4 +75,22 @@ export class UserComponent {
       }
     );
   }
+
+  logout(): void {
+    const refreshToken = localStorage.getItem('refresh_token');
+    if (refreshToken) {
+      this.userService.logout(refreshToken).subscribe(
+        (response) => {
+          console.log('Logout successful:', response);
+          localStorage.removeItem('access_token');
+          localStorage.removeItem('refresh_token');
+          localStorage.removeItem('user_type');
+          console.log("removido");
+        },
+        (error) => {
+          console.error('Logout error:', error);
+        }
+      );
+    }
+  }
 }
