@@ -93,4 +93,15 @@ export class UserComponent {
       );
     }
   }
+
+  edit(): void {
+    this.userService.edit(this.editedUser).subscribe(
+      (response) => {
+        console.log('Edición de usuario exitosa:', response);
+      },
+      (error) => {
+        console.error('Error en la edición de usuario:', error);
+      }
+    );
+  }
 }
