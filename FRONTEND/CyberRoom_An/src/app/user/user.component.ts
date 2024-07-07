@@ -59,4 +59,20 @@ export class UserComponent {
       }
     );
   }
+
+  login(): void {
+    this.userService.login(this.credentials).subscribe(
+      (response) => {
+        console.log('Login successful:', response);
+        localStorage.setItem('access_token', response.access);
+        localStorage.setItem('refresh_token', response.refresh);
+        localStorage.setItem('user_type', response.user_type);
+        this.refreshToken = response.refresh;
+        this.getUserProfile();
+      },
+      (error) => {
+        console.error('Login error:', error);
+      }
+    );
+  }
 }
