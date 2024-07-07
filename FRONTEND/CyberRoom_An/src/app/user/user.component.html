@@ -1,1 +1,9 @@
-<p>user works!</p>
+<!-- Registro -->
+<h2>Registrar Usuario</h2>
+<form (ngSubmit)="register()">
+  <input type="text" [(ngModel)]="user.username" name="username" placeholder="Nombre de usuario">
+  <input type="email" [(ngModel)]="user.email" name="email" placeholder="Correo electrónico">
+  <input type="password" [(ngModel)]="user.password" name="password" placeholder="Contraseña">
+  <input type="password" [(ngModel)]="user.confirmPassword" name="confirmPassword" placeholder="Confirmar contraseña">
+  <button type="submit">Registrar</button>
+</form>
