@@ -1,0 +1,124 @@
+/* Estilos generales para el contenedor principal */
+div {
+    background-color: #1a1e29; /* Fondo gris oscuro */
+    border: 1px solid #01c38e; /* Borde verde brillante */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 20px auto;
+    color: #ffffff; /* Texto blanco */
+  }
+  
+  /* Estilos para los encabezados */
+  h2 {
+    color: #ffffff; /* Texto blanco para los encabezados */
+    font-size: 24px; /* Tamaño de fuente aumentado */
+    margin-bottom: 15px; /* Espacio debajo del encabezado */
+  }
+  
+  /* Estilos para los formularios */
+  form {
+    display: grid;
+    gap: 15px; /* Espacio entre los elementos del formulario */
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #01c38e; /* Borde verde brillante */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #132d46; /* Fondo azul oscuro para los campos de entrada */
+    color: #ffffff; /* Texto blanco en los campos de entrada */
+  }
+  
+  button[type="submit"] {
+    background-color: #01c38e; /* Verde brillante */
+    color: #ffffff; /* Texto blanco */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #019a6e; /* Verde más oscuro en hover */
+  }
+  
+  button.logout {
+    background-color: #f44336; /* Rojo brillante */
+    color: #ffffff; /* Texto blanco */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button.logout:hover {
+    background-color: #d32f2f; /* Rojo más oscuro en hover */
+  }
+  
+  /* Estilos específicos para la edición de usuario */
+  .user-edit {
+    background-color: #1a1e29; /* Fondo gris oscuro */
+    border: 1px solid #01c38e; /* Borde verde brillante */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .user-edit .form-group {
+    margin-bottom: 15px; /* Espacio entre los grupos de formulario */
+  }
+  
+  .user-edit label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .user-edit .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #01c38e; /* Borde verde brillante */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #132d46; /* Fondo azul oscuro para los campos de entrada */
+    color: #ffffff; /* Texto blanco en los campos de entrada */
+  }
+  
+  /* Estilos para la lista de usuarios */
+  ul {
+    list-style-type: none; /* Eliminar los puntos de la lista */
+    padding: 0;
+  }
+  
+  li {
+    background-color: #132d46; /* Fondo azul oscuro para los elementos de la lista */
+    border: 1px solid #01c38e; /* Borde verde brillante */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  li button {
+    background-color: #01c38e; /* Verde brillante */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  li button:hover {
+    background-color: #019a6e; /* Verde más oscuro en hover */
+  }
