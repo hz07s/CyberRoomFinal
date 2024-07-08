@@ -22,4 +22,8 @@ export class UserManageService {
   updateUser(id: number, user: any): Observable<any> {
     return this.http.put(`${this.apiBaseUrl}/user-manage/update/${id}/`, user);
   }
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(`${this.apiBaseUrl}/user-manage/delete/${id}/`);
+  }
 }
