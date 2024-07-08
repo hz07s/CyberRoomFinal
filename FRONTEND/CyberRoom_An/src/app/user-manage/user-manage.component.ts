@@ -62,4 +62,11 @@ export class UserManageComponent implements OnInit {
 
     this.resetForm();
   }
+
+  onEdit(user: any): void {
+    this.editMode = true;
+    this.currentUserId = user.id;
+    this.userForm.patchValue(user);
+    console.log(user);
+  }
 }
