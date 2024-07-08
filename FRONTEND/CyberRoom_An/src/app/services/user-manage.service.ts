@@ -18,4 +18,8 @@ export class UserManageService {
   createUser(user: any): Observable<any> {
     return this.http.post(`${this.apiBaseUrl}/user-manage/create/`, user);
   }
+
+  updateUser(id: number, user: any): Observable<any> {
+    return this.http.put(`${this.apiBaseUrl}/user-manage/update/${id}/`, user);
+  }
 }
