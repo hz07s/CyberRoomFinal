@@ -56,4 +56,43 @@
         <button type="submit" class="btn-primary">{{ editMode ? 'Actualizar' : 'Agregar' }} Usuario</button>
       </div>
     </form>
+  
+    <h2>Lista de Usuarios</h2>
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>User Type</th>
+          <th>Name</th>
+          <th>Last Name</th>
+          <th>Balance</th>
+          <th>DNI</th>
+          <th>Phone Number</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.user_type }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.balance }}</td>
+          <td>{{ user.dni }}</td>
+          <td>{{ user.phoneNumber }}</td>
+          <td>{{ user.age }}</td>
+          <td>{{ user.gender }}</td>
+          <td>
+            <button (click)="onDelete(user.id)" class="btn-icon"><i class="fas fa-trash"></i></button>
+            <button (click)="onEdit(user)" class="btn-icon"><i class="fas fa-edit"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
