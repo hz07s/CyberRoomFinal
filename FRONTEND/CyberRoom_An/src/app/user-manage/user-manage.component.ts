@@ -69,4 +69,11 @@ export class UserManageComponent implements OnInit {
     this.userForm.patchValue(user);
     console.log(user);
   }
+
+  onDelete(id: number): void {
+    this.userManageService.deleteUser(id).subscribe(
+      () => this.loadUsers(),
+      error => console.error(error)
+    );
+  }
 }
