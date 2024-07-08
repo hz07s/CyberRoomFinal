@@ -77,3 +77,18 @@ class UserDetail(APIView):
         user = request.user
         serializer = UserSerializer(user)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+# USERMANAGE API's VIEW
+
+class UserCreateApiView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = UserManageCreateSerializer(data=request.data)
+        print("Datos recibidos:", request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            print("Errores de validación:", serializer.errors)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
