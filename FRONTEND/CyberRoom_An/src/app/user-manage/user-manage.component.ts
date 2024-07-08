@@ -76,4 +76,10 @@ export class UserManageComponent implements OnInit {
       error => console.error(error)
     );
   }
+
+  resetForm(): void {
+    this.editMode = false;
+    this.currentUserId = null;
+    this.userForm.reset();
+  }
 }
