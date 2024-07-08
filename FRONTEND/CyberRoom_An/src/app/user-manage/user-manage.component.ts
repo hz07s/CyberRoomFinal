@@ -35,4 +35,11 @@ export class UserManageComponent implements OnInit {
     console.log(this.users.length);
   }
 
+  loadUsers(): void {
+    this.userManageService.getUsers().subscribe(
+      data => this.users = data,
+      error => console.error(error)
+    );
+  }
+
 }
