@@ -102,3 +102,8 @@ class UserListApiView(generics.ListAPIView):
 class UserDetailApiView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserManageSerializer
+
+class UserUpdateApiView(generics.UpdateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserManageSerializer
+    lookup_field = 'id'
