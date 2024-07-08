@@ -42,4 +42,24 @@ export class UserManageComponent implements OnInit {
     );
   }
 
+  onSubmit(): void {
+    if (this.userForm.invalid) return;
+    
+    if (this.editMode) {
+      console.log(this.userForm.value);
+      console.log(this.currentUserId);
+      this.userManageService.updateUser(this.currentUserId!, this.userForm.value).subscribe(
+        () => this.loadUsers(),
+        error => console.error(error)
+      );
+    } else {
+      console.log(this.userForm.value);
+      this.userManageService.createUser(this.userForm.value).subscribe(
+        () => this.loadUsers(),
+        error => console.error(error)
+      );
+    }
+
+    this.resetForm();
+  }
 }
