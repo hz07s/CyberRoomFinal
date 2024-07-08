@@ -10,4 +10,8 @@ export class UserManageService {
   private apiBaseUrl = `${environment.apiBaseUrl}`;
 
   constructor(private http: HttpClient) { }
+
+  getUsers(): Observable<any> {
+    return this.http.get(`${this.apiBaseUrl}/user-manage/list/`);
+  }
 }
