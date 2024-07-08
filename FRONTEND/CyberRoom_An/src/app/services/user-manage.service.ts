@@ -14,4 +14,8 @@ export class UserManageService {
   getUsers(): Observable<any> {
     return this.http.get(`${this.apiBaseUrl}/user-manage/list/`);
   }
+
+  createUser(user: any): Observable<any> {
+    return this.http.post(`${this.apiBaseUrl}/user-manage/create/`, user);
+  }
 }
