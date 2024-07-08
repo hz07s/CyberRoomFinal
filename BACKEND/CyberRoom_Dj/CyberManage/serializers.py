@@ -17,3 +17,8 @@ class UserSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user
+
+class UserManageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'user_type', 'name', 'lastName', 'imagen', 'balance', 'dni', 'phoneNumber', 'age', 'gender']
