@@ -13,7 +13,22 @@ export class UserManageComponent implements OnInit {
   editMode = false;
   currentUserId: number | null = null;
 
-  constructor() { }
+  constructor(private fb: FormBuilder, private userManageService: UserManageService) {
+    this.userForm = this.fb.group({
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: [''],
+      user_type: ['client', Validators.required],
+      name: [''],
+      lastName: [''],
+      imagen: [''],
+      balance: [0.00, [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
+      dni: [''],
+      phoneNumber: [''],
+      age: [null, Validators.pattern(/^\d+$/)],
+      gender: ['']
+    });
+  }
 
   ngOnInit(): void {
   }
