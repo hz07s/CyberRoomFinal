@@ -1,0 +1,120 @@
+/* Contenedor principal */
+.container {
+    padding: 20px;
+    background-color: #1a1e29; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    border-radius: 8px;
+    border: 1px solid #01c38e; /* Borde verde brillante */
+  }
+  
+  /* Títulos */
+  .container h2 {
+    color: #ffffff; /* Texto blanco */
+    margin-bottom: 20px;
+  }
+  
+  /* Formulario */
+  .user-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #132d46; /* Fondo azul más oscuro */
+    border: 1px solid #01c38e; /* Borde verde brillante */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Elementos del formulario */
+  .user-form .form-group {
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para alinear etiquetas y campos verticalmente */
+    margin-bottom: 10px; /* Reducido el margen inferior para menor separación */
+  }
+  
+  .user-form label {
+    font-weight: bold;
+    color: #ffffff; /* Texto blanco */
+    margin-bottom: 5px; /* Espaciado inferior */
+  }
+  
+  .user-form input,
+  .user-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #ffffff; /* Fondo blanco para los campos de entrada */
+    color: #000000; /* Texto negro */
+  }
+  
+  /* Botones del formulario */
+  .user-form .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .user-form .btn-primary {
+    background-color: #01c38e; /* Verde brillante */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .user-form .btn-primary:hover {
+    background-color: #019a6e; /* Verde más oscuro en hover */
+  }
+  
+  .user-form .btn-secondary {
+    background-color: #f44336; /* Rojo brillante */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .user-form .btn-secondary:hover {
+    background-color: #d32f2f; /* Rojo más oscuro en hover */
+  }
+  
+  /* Tabla de usuarios */
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .user-table th {
+    background-color: #132d46; /* Fondo azul más oscuro */
+    color: #ffffff; /* Texto blanco */
+  }
+  
+  .user-table tbody tr:hover {
+    background-color: #1a1e29; /* Fondo oscuro al pasar el ratón */
+  }
+  
+  .user-table .btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px; /* Ajusta el tamaño del icono si es necesario */
+    color: #01c38e; /* Ajusta el color del icono según tu paleta */
+    padding: 0;
+  }
+  
+  .user-table .btn-icon i {
+    margin: 0 8px; /* Ajusta el espacio entre iconos según sea necesario */
+  }
+  
