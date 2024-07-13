@@ -1,3 +1,11 @@
 from django.shortcuts import render
+from .models import (
+    Tariff,
+)
+from .serializers import (
+    TariffSerializer,
+)
 
-# Create your views here.
+class TariffCreateAPIView(generics.CreateAPIView):
+    queryset = Tariff.objects.all()
+    serializer_class = TariffSerializer
