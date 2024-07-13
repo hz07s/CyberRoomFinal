@@ -58,4 +58,10 @@ export class TariffComponent implements OnInit {
       });
     }
   }
+  resetForm(): void {
+    this.currentCost = 0;
+    this.currentTarifRange = '';
+    this.selectedTariff = null;
+    this.isEditing = false;
+  }
 }
