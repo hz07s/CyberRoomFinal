@@ -17,4 +17,27 @@
         <button type="submit" class="btn-primary">{{ isEditing ? 'Actualizar' : 'Agregar' }} Tariff</button>
       </div>
     </form>
+	
+	<h2>List of Tariffs</h2>
+    <table class="tariff-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Cost</th>
+          <th>Range</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tariff of tariffs">
+          <td>{{ tariff.id }}</td>
+          <td>{{ tariff.cost }}</td>
+          <td>{{ tariff.tarifRange }}</td>
+          <td> 
+            <button (click)="deleteTariff(tariff.id)" class="btn-icon"><i class="fas fa-trash"></i></button>
+            <button (click)="editTariff(tariff)" class="btn-icon"><i class="fas fa-edit"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 </div>
