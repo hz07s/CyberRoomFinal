@@ -64,4 +64,11 @@ export class TariffComponent implements OnInit {
     this.selectedTariff = null;
     this.isEditing = false;
   }
+  onSubmit(): void {
+    if (this.isEditing && this.selectedTariff) {
+      this.updateTariff();
+    } else {
+      this.createTariff();
+    }
+  }
 }
