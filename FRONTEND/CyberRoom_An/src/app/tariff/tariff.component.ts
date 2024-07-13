@@ -24,4 +24,9 @@ export class TariffComponent implements OnInit {
   ngOnInit(): void {
     this.getTariffs();
   }
+  getTariffs(): void {
+    this.tariffService.getTariffs().subscribe((data: Tariff[]) => {
+      this.tariffs = data;
+    });
+  }
 }
