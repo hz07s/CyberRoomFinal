@@ -42,4 +42,10 @@ export class TariffComponent implements OnInit {
       this.getTariffs();
     });
   }
+  editTariff(tariff: Tariff): void {
+    this.selectedTariff = { ...tariff };
+    this.isEditing = true; 
+    this.currentCost = tariff.cost;
+    this.currentTarifRange = tariff.tarifRange;
+  }
 }
