@@ -18,3 +18,8 @@ class TariffDeleteAPIView(generics.DestroyAPIView):
     queryset = Tariff.objects.all()
     serializer_class = TariffSerializer
     lookup_field = 'id'
+
+class TariffUpdateAPIView(generics.UpdateAPIView):
+    queryset = Tariff.objects.all()
+    serializer_class = TariffSerializer
+    lookup_field = 'id'
