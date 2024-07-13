@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>{{ isEditing ? 'Actualizar' : 'Agregar' }} Tariff</h2>
+  
+    <form (ngSubmit)="onSubmit()" class="tariff-form">
+      <!-- Formulario para agregar o editar una tarifa -->
+      <div class="form-group">
+        <label>Cost:</label>
+        <input type="number" [(ngModel)]="currentCost" name="cost" required />
+      </div>
+      <div class="form-group">
+        <label>Tariff Range:</label>
+        <input type="text" [(ngModel)]="currentTarifRange" name="tarifRange" required />
+      </div>
+  
+      <div class="form-buttons">
+        <button type="button" class="btn-secondary" (click)="resetForm()">Cancelar</button>
+        <button type="submit" class="btn-primary">{{ isEditing ? 'Actualizar' : 'Agregar' }} Tariff</button>
+      </div>
+    </form>
+</div>
