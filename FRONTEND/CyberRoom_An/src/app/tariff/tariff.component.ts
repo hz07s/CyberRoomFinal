@@ -48,4 +48,14 @@ export class TariffComponent implements OnInit {
     this.currentCost = tariff.cost;
     this.currentTarifRange = tariff.tarifRange;
   }
+  updateTariff(): void {
+    if (this.selectedTariff && this.selectedTariff.id) {
+      this.selectedTariff.cost = this.currentCost;
+      this.selectedTariff.tarifRange = this.currentTarifRange;
+      this.tariffService.updateTariff(this.selectedTariff.id, this.selectedTariff).subscribe(() => {
+        this.getTariffs(); 
+        this.resetForm();
+      });
+    }
+  }
 }
