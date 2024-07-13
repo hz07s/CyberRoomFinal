@@ -9,3 +9,7 @@ from .serializers import (
 class TariffCreateAPIView(generics.CreateAPIView):
     queryset = Tariff.objects.all()
     serializer_class = TariffSerializer
+
+class TariffListAPIView(generics.ListAPIView):
+    queryset = Tariff.objects.all()
+    serializer_class = TariffSerializer
