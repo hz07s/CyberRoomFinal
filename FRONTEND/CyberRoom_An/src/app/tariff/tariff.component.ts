@@ -37,4 +37,9 @@ export class TariffComponent implements OnInit {
       this.resetForm();
     });
   }
+  deleteTariff(id: number): void {
+    this.tariffService.deleteTariff(id).subscribe(() => {
+      this.getTariffs();
+    });
+  }
 }
