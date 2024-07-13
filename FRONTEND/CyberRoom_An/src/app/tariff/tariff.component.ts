@@ -29,4 +29,12 @@ export class TariffComponent implements OnInit {
       this.tariffs = data;
     });
   }
+  createTariff(): void {
+    this.newTariff.cost = this.currentCost;
+    this.newTariff.tarifRange = this.currentTarifRange;
+    this.tariffService.createTariff(this.newTariff).subscribe(() => {
+      this.getTariffs();
+      this.resetForm();
+    });
+  }
 }
