@@ -1,3 +1,14 @@
 from django.shortcuts import render
+from rest_framework import serializers
+from rest_framework import generics, viewsets, status
+from rest_framework.views import APIView
 
-# Create your views here.
+from .models import (
+    Machine,    
+)
+from .serializers import (
+    MachineSerializer,
+)
+class MachineCreateAPIView(generics.CreateAPIView):
+    queryset = Machine.objects.all()
+    serializer_class = MachineSerializer
