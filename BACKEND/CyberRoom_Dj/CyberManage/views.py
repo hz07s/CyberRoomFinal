@@ -21,3 +21,8 @@ class MachineDeleteAPIView(generics.DestroyAPIView):
     queryset = Machine.objects.all()
     serializer_class = MachineSerializer
     lookup_field = 'idMachine' 
+
+class MachineUpdateAPIView(generics.UpdateAPIView):
+    queryset = Machine.objects.all()
+    serializer_class = MachineSerializer
+    lookup_field = 'idMachine'
