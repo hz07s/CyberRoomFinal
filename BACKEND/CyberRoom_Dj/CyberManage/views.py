@@ -16,3 +16,8 @@ class MachineCreateAPIView(generics.CreateAPIView):
 class MachineListAPIView(generics.ListAPIView):
     queryset = Machine.objects.all()
     serializer_class = MachineSerializer
+    
+class MachineDeleteAPIView(generics.DestroyAPIView):
+    queryset = Machine.objects.all()
+    serializer_class = MachineSerializer
+    lookup_field = 'idMachine' 
