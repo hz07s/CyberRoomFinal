@@ -12,3 +12,7 @@ from .serializers import (
 class MachineCreateAPIView(generics.CreateAPIView):
     queryset = Machine.objects.all()
     serializer_class = MachineSerializer
+    
+class MachineListAPIView(generics.ListAPIView):
+    queryset = Machine.objects.all()
+    serializer_class = MachineSerializer
