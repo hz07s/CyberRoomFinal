@@ -73,4 +73,42 @@
       <button type="submit" class="btn-primary">{{ isEditing ? 'Actualizar' : 'Agregar' }} Máquina</button>
     </div>
   </form>
+  
+  <!-- Lista de máquinas -->
+  <h2>Lista de Máquinas</h2>
+  <table class="machine-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Rango</th>
+        <th>Usuario Asignado</th>
+        <th>Estado</th>
+        <th>Sistema Operativo</th>
+        <th>Procesador</th>
+        <th>RAM (GB)</th>
+        <th>Disco Duro</th>
+        <th>Notas Adicionales</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let machine of machines">
+        <td>{{ machine.idMachine }}</td>
+        <td>{{ machine.machineName }}</td>
+        <td>{{ getMachineRangeName(machine) }}</td>
+        <td>{{ machine.assignedUser }}</td>
+        <td>{{ getMachineStatusLabel(machine.machineStatus) }}</td>
+        <td>{{ machine.operatingSystem }}</td>
+        <td>{{ machine.processor }}</td>
+        <td>{{ machine.ram }}</td>
+        <td>{{ machine.hardDrive }}</td>
+        <td>{{ machine.additionalNotes }}</td>
+        <td>
+          <button (click)="deleteMachine(machine.idMachine)" class="btn-icon"><i class="fas fa-trash"></i></button>
+          <button (click)="editMachine(machine)" class="btn-icon"><i class="fas fa-edit"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
