@@ -45,5 +45,10 @@ export class MachineComponent implements OnInit {
       this.tariffs = data;
     });
   }
-
+  createMachine(): void {
+    this.machineService.createMachine(this.newMachine).subscribe(() => {
+      this.getMachines();
+      this.resetForm();
+    });
+  }
 }
