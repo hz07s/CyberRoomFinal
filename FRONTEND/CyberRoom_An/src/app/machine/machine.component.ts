@@ -51,4 +51,9 @@ export class MachineComponent implements OnInit {
       this.resetForm();
     });
   }
+  deleteMachine(id: number): void {
+    this.machineService.deleteMachine(id).subscribe(() => {
+      this.getMachines();
+    });
+  }  
 }
