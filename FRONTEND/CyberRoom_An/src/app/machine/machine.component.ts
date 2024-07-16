@@ -40,4 +40,10 @@ export class MachineComponent implements OnInit {
       this.machines = data;
     });
   }
+  getTariffs(): void {
+    this.tariffService.getTariffs().subscribe((data: Tariff[]) => {
+      this.tariffs = data;
+    });
+  }
+
 }
