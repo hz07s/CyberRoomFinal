@@ -60,4 +60,14 @@ export class MachineComponent implements OnInit {
     this.selectedMachine = { ...machine };
     this.isEditing = true;
   }
+  updateMachine(): void {
+    if (this.selectedMachine && this.selectedMachine.idMachine) {
+      this.machineService.updateMachine(this.selectedMachine.idMachine, this.selectedMachine).subscribe(() => {
+        console.log(this.selectedMachine.idMachine);
+        this.getMachines();
+        this.resetForm();
+        this.isEditing = false;
+      });
+      console.log(this.selectedMachine.machineName);
+    }
 }
