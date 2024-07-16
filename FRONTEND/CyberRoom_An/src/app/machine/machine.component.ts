@@ -55,5 +55,9 @@ export class MachineComponent implements OnInit {
     this.machineService.deleteMachine(id).subscribe(() => {
       this.getMachines();
     });
-  }  
+  }
+  editMachine(machine: Machine): void {
+    this.selectedMachine = { ...machine };
+    this.isEditing = true;
+  }
 }
