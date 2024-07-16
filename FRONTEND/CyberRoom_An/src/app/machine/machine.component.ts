@@ -28,5 +28,16 @@ export class MachineComponent implements OnInit {
   constructor(
     private machineService: MachineService,
     private tariffService: TariffService
-  ) {} 
+  ) {}
+  
+  ngOnInit(): void {
+    this.getMachines();
+    this.getTariffs();
+  }
+
+  getMachines(): void {
+    this.machineService.getMachines().subscribe((data: Machine[]) => {
+      this.machines = data;
+    });
+  }
 }
