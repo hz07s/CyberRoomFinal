@@ -103,4 +103,23 @@ export class MachineComponent implements OnInit {
       additionalNotes: ''
     };
   }
+  imprimir(): void {
+    console.log(this.selectedMachine.machineName);
+  }
+  
+  getMachineRangeName(machine: Machine): string {
+    let range = '';
+    for (let i = 0; i < this.tariffs.length; i++) {
+      if (this.tariffs[i].id == machine.machineRange){
+        range = this.tariffs[i].tarifRange;
+        return range;
+      }
+    }
+    return "No hay";
+  }
+
+  getMachineStatusLabel(status: string): string {
+    const state = this.machineStates.find(state => state.value === status);
+    return state ? state.label : 'Desconocido';
+  }
 }
