@@ -1,1 +1,163 @@
+.container {
+  padding: 20px;
+  background-color: #1a1e29; /* Fondo oscuro */
+  color: #ffffff; /* Texto blanco */
+  border-radius: 8px;
+  border: 1px solid #01c38e; /* Borde verde brillante */
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+/* Títulos */
+.container h1 {
+  font-size: 28px;
+  color: #ffffff; 
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Estilo para el formulario */
+.machine-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #132d46; 
+  border: 1px solid #01c38e; 
+  border-radius: 8px;
+  padding: 15px; 
+  margin-bottom: 20px;
+}
+
+/* Secciones del formulario */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column; 
+  gap: 5px; 
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #ffffff; 
+}
+
+/* Estilos para los campos de entrada */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px; 
+  background-color: #ffffff; 
+  color: #000000; 
+}
+
+/* Estilos para el textarea */
+textarea {
+  resize: vertical;
+}
+
+/* Botones del formulario */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px; 
+}
+
+.btn-primary {
+  background-color: #01c38e; 
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px; 
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #019a6e; 
+}
+
+.btn-secondary {
+  background-color: #f44336; 
+  color: #ffffff; 
+  border: none;
+  padding: 8px 16px; 
+  border-radius: 5px;
+  font-size: 14px; 
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #d32f2f; 
+
+/* Estilos para la tabla de máquinas */
+.machine-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.machine-table th,
+.machine-table td {
+  padding: 8px; 
+  border: 1px solid #01c38e; 
+  text-align: center;
+}
+
+.machine-table th {
+  background-color: #132d46; 
+  color: #ffffff; 
+}
+
+.machine-table td {
+  background-color: #1a1e29; 
+  color: #ffffff; 
+}
+
+/* Botones de la tabla */
+.btn-edit {
+  background-color: #01c38e; 
+  padding: 6px 12px; 
+  border-radius: 5px;
+  border: none;
+  font-size: 12px; 
+  cursor: pointer;
+}
+
+.btn-edit:hover {
+  background-color: #019a6e; 
+}
+
+.btn-delete {
+  background-color: #f44336; 
+  color: #ffffff; 
+  padding: 6px 12px; 
+  border-radius: 5px;
+  border: none;
+  font-size: 12px; 
+  cursor: pointer;
+  margin-left: 8px; 
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f; 
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px; 
+  color: #01c38e; 
+  padding: 0;
+}
+
+.btn-icon i {
+  margin: 0 8px; 
+}
