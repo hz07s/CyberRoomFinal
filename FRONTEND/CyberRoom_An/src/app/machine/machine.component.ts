@@ -70,4 +70,9 @@ export class MachineComponent implements OnInit {
       });
       console.log(this.selectedMachine.machineName);
     }
+	resetForm(): void {
+    this.newMachine = this.initializeMachine();
+    this.selectedMachine = this.initializeMachine();
+    this.isEditing = false;
+  }
 }
