@@ -75,4 +75,32 @@ export class MachineComponent implements OnInit {
     this.selectedMachine = this.initializeMachine();
     this.isEditing = false;
   }
+  onSubmit(): void {
+    if (this.isEditing) {
+      this.updateMachine();
+    } else {
+      this.createMachine();
+    }
+  }
+
+  private initializeMachine(): Machine {
+    return {
+      idMachine: 0,
+      machineName: '',
+      machineRange: 0,
+      assignedUser: '',
+      machineStatus: 'available', // default status
+      operatingSystem: '',
+      installedSoftware: '',
+      lastMaintenance: new Date(),
+      acquisitionDate: new Date(),
+      ipAddress: '',
+      macAddress: '',
+      processor: '',
+      ram: 0,
+      hardDrive: '',
+      location: '',
+      additionalNotes: ''
+    };
+  }
 }
