@@ -1,1 +1,13 @@
-<p>admin-dashboard works!</p>
+<div class="admin-dashboard">
+    <h2>Estadísticas</h2>
+
+    <div class="chart-container">
+        <canvas id="machinesChart"></canvas>
+    </div>
+    
+    <div class="stats-summary">
+        <p>Total de Máquinas: {{ totalMachines }}</p>
+        <p>Máquinas Activas: {{ activeMachines }}</p>
+        <p>Máquinas Inactivas: {{ inactiveMachines }}</p>
+    </div>
+</div>
