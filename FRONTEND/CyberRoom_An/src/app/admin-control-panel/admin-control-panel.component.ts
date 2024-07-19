@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-admin-control-panel',
   templateUrl: './admin-control-panel.component.html',
   styleUrls: ['./admin-control-panel.component.css']
 })
-export class AdminControlPanelComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class AdminControlPanelComponent {
+  isActive = true; // Estado inicial del sitio web
+  areReservationsEnabled = true; // Estado inicial de las reservas
