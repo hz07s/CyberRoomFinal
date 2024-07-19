@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Chart, registerables } from 'chart.js';
+
+// Registra todos los componentes necesarios
+Chart.register(...registerables);
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -6,10 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+  public chart: any;
+  public totalMachines = 100;
+  public activeMachines = 80;
+  public inactiveMachines = 20;
