@@ -1,0 +1,30 @@
+<div class="admin-control-panel">
+    <!-- Estado del Sitio Web -->
+    <div class="status-container">
+      <p class="status-message" [ngClass]="{'active': isActive, 'inactive': !isActive}">
+        {{ isActive ? 'El sitio web está activo' : 'El sitio web está inactivo' }}
+      </p>
+      <div class="toggle-container">
+        <span>{{ isActive ? 'Cerrar el sitio web' : 'Abrir el sitio web' }}</span>
+        <label class="switch">
+          <input type="checkbox" (change)="toggleSiteStatus()" [checked]="isActive">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  
+    <!-- Estado de las Reservas -->
+    <div class="status-container">
+      <p class="status-message" [ngClass]="{'active': areReservationsEnabled, 'inactive': !areReservationsEnabled}">
+        {{ areReservationsEnabled ? 'Las reservas están habilitadas' : 'Las reservas están deshabilitadas' }}
+      </p>
+      <div class="toggle-container">
+        <span>{{ areReservationsEnabled ? 'Deshabilitar reservas' : 'Habilitar reservas' }}</span>
+        <label class="switch">
+          <input type="checkbox" (change)="toggleReservationsStatus()" [checked]="areReservationsEnabled">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </div>
+  
