@@ -14,3 +14,11 @@ export class AdminHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.checkAuthStatus(); // Verifica el estado de autenticación al inicializar
   }
+
+  checkAuthStatus() {
+    let accessToken = localStorage.getItem('accessToken');
+    let user_type = localStorage.getItem('user_type');
+    
+    // Verifica si el usuario está autenticado y si es un admin
+    this.isLoggedIn = !!accessToken && user_type === 'admin';
+  }
