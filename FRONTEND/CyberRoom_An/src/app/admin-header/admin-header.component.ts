@@ -22,3 +22,17 @@ export class AdminHeaderComponent implements OnInit {
     // Verifica si el usuario está autenticado y si es un admin
     this.isLoggedIn = !!accessToken && user_type === 'admin';
   }
+
+  handleAuthAction() {
+    if (this.isLoggedIn) {
+      // Lógica para cerrar sesión
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('refreshToken');
+      localStorage.removeItem('user_type');
+      this.isLoggedIn = false;
+      this.router.navigate(['/home']); // Redirige a la página principal o cualquier otra página
+    } else {
+      this.router.navigate(['/login']); // Redirige a la página de login
+    }
+  }
+}
