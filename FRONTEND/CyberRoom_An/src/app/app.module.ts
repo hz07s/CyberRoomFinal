@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AdminControlPanelComponent } from './admin-control-panel/admin-control-panel.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdeminHeaderComponent } from './ademin-header/ademin-header.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AdminControlPanelComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    AdeminHeaderComponent,
+    AdminHeaderComponent
   ],
   imports: [
     BrowserModule,
