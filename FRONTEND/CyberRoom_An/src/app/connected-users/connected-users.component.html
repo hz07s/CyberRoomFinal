@@ -1,1 +1,9 @@
-<p>connected-users works!</p>
+<div class="connected-users-container">
+    <h2>Usuarios Conectados</h2>
+    <ul class="connected-users-list">
+      <li *ngFor="let user of connectedUsers">
+        {{ user.id + " - " + user.name }}
+      </li>
+    </ul>
+  </div>
+  
