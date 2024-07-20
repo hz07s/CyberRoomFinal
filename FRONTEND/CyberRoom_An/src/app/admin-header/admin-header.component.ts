@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-header',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-header.component.css']
 })
 export class AdminHeaderComponent implements OnInit {
+  isLoggedIn = false; // Asume que no está autenticado al inicio
 
-  constructor() { }
+  constructor(private router: Router) { } // Inyecta el router
 
   ngOnInit(): void {
+    this.checkAuthStatus(); // Verifica el estado de autenticación al inicializar
   }
-
-}
