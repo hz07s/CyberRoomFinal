@@ -8,6 +8,7 @@ import { AdminControlPanelComponent } from './admin-control-panel/admin-control-
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdeminHeaderComponent } from './ademin-header/ademin-header.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { ConnectedUsersComponent } from './connected-users/connected-users.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
     AdminControlPanelComponent,
     AdminDashboardComponent,
     AdeminHeaderComponent,
-    AdminHeaderComponent
+    AdminHeaderComponent,
+    ConnectedUsersComponent
   ],
   imports: [
     BrowserModule,
