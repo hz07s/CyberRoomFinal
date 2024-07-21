@@ -9,6 +9,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdeminHeaderComponent } from './ademin-header/ademin-header.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { ConnectedUsersComponent } from './connected-users/connected-users.component';
+import { TransactionComponent } from './transaction/transaction.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ConnectedUsersComponent } from './connected-users/connected-users.compo
     AdminDashboardComponent,
     AdeminHeaderComponent,
     AdminHeaderComponent,
-    ConnectedUsersComponent
+    ConnectedUsersComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
