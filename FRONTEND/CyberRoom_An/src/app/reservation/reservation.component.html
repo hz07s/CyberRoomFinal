@@ -1,0 +1,67 @@
+<div class="reservation-container">
+  <div class="new_reservation">
+    <h2>Crear Reserva</h2>
+    <form (ngSubmit)="createReservation()">
+      <div>
+        <label for="idClient">ID Cliente:</label>
+        <input type="number" id="idUser" [(ngModel)]="reservation.idUser" name="idUser" required>
+      </div>
+      <div>
+        <label for="idMachine">ID Máquina:</label>
+        <input type="number" id="idMachine" [(ngModel)]="reservation.idMachine" name="idMachine" required>
+      </div>
+      <div>
+        <label for="startTime">Hora de Inicio:</label>
+        <input type="datetime-local" id="startTime" [(ngModel)]="reservation.startTime" name="startTime" (change)="calculateCost()" required>
+      </div>
+      <div>
+        <label for="endTime">Hora de Fin:</label>
+        <input type="datetime-local" id="endTime" [(ngModel)]="reservation.endTime" name="endTime" (change)="calculateCost()" required>
+      </div>
+      <div>
+        <label for="cost">Costo:</label>
+        <input type="number" id="cost" [(ngModel)]="reservation.cost" name="cost" [value]="reservation.cost" readonly>
+      </div>
+      <div>
+        <label for="reservationStatus">Estado de la Reserva:</label>
+        <select id="reservationStatus" [(ngModel)]="reservation.reservationStatus" name="reservationStatus" required>
+          <option *ngFor="let status of statusChoices" [value]="status.value">{{ status.display }}</option>
+        </select>
+      </div>
+      <button type="submit">Crear Reserva</button>
+    </form>
+  </div>
+
+  <div class="list_reservation">
+    <h1>Lista de Reservas</h1>
+    <ul>
+      <li *ngFor="let reservation of reservations">
+        Cliente: {{ reservation.idUser }} - Máquina: {{ reservation.idMachine }} - 
+        Inicio: {{ reservation.startTime | date:'short' }} - Fin: {{ reservation.endTime | date:'short' }} - 
+        Costo: {{ reservation.cost }} - Estado: {{ reservation.reservationStatus }}
+        <button class="btn btn-primary" (click)="viewUpdate(reservation)">
+          Actualizar
+        </button>
+        <button class="btn btn-danger" (click)="deleteReservation(reservation.id)">
+          Eliminar
+        </button>
+        <div *ngIf="showForm && selectedReservation === reservation">
+          <h2>Actualizar Reserva</h2>
+          <form (ngSubmit)="updateReservation()">
+            <!-- Campos del formulario de actualización aquí, similares al formulario de creación -->
+            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!--export interface Reservation {
+    id: number;
+    idUser: number;
+    idMachine: number;
+    startTime: Date;
+    endTime: Date;
+    cost: number;
+    reservationStatus: 'pending' | 'confirmed' | 'cancelled';
+}-->

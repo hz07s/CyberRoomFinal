@@ -1,47 +1,47 @@
 .admin-dashboard {
-    background-color: #1a1e29; /* Fondo gris oscuro */
+  background-color: #1a1e29; /* Fondo gris oscuro */
+  border: 1px solid #01c38e; /* Borde verde brillante */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 15px;
+  text-align: center;
+  color: #ffffff; 
+}
+
+.dashboard-header {
+    margin-bottom: 20px;
+    font-size: 24px; /* Tamaño de fuente aumentado para el encabezado */
+    font-weight: bold;
+}
+
+.chart-container {
+    margin-bottom: 20px;
+    text-align: center; /* Centra el gráfico */
+}
+
+.chart-container canvas {
+    max-width: 100%; /* Asegura que el gráfico no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción del gráfico */
+    border: 1px solid #01c38e; /* Borde verde brillante opcional alrededor del gráfico */
+    border-radius: 8px; /* Bordes redondeados opcionales alrededor del gráfico */
+    font-size: 24px;
+}
+
+.stats-summary {
     border: 1px solid #01c38e; /* Borde verde brillante */
     border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: 15px;
+    margin-top: 20px;
     text-align: center;
-    color: #ffffff; 
-  }
-  
-  .dashboard-header {
-      margin-bottom: 20px;
-      font-size: 24px; /* Tamaño de fuente aumentado para el encabezado */
-      font-weight: bold;
-  }
-  
-  .chart-container {
-      margin-bottom: 20px;
-      text-align: center; /* Centra el gráfico */
-  }
-  
-  .chart-container canvas {
-      max-width: 100%; /* Asegura que el gráfico no exceda el ancho del contenedor */
-      height: auto; /* Mantiene la proporción del gráfico */
-      border: 1px solid #01c38e; /* Borde verde brillante opcional alrededor del gráfico */
-      border-radius: 8px; /* Bordes redondeados opcionales alrededor del gráfico */
-      font-size: 24px;
-  }
-  
-  .stats-summary {
-      border: 1px solid #01c38e; /* Borde verde brillante */
-      border-radius: 8px;
-      margin-top: 20px;
-      text-align: center;
-  }
-  
-  .stats-summary p {
-      margin: 10px 0; /* Espacio entre las líneas de estadísticas */
-      font-size: 16px; /* Tamaño de fuente para las estadísticas */
-  }
-  
-  .admin-dashboard h2 {
-      font-size: 24px;
-      margin-bottom: 15px;
-  }
+}
+
+.stats-summary p {
+    margin: 10px 0; /* Espacio entre las líneas de estadísticas */
+    font-size: 16px; /* Tamaño de fuente para las estadísticas */
+}
+
+.admin-dashboard h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}

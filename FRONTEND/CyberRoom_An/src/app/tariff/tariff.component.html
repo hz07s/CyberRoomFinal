@@ -1,0 +1,45 @@
+<div class="container">
+    <h2>{{ isEditing ? 'Actualizar' : 'Agregar' }} Tariff</h2>
+  
+    <form (ngSubmit)="onSubmit()" class="tariff-form">
+      <!-- Formulario para agregar o editar una tarifa -->
+      <div class="form-group">
+        <label>Cost:</label>
+        <input type="number" [(ngModel)]="currentCost" name="cost" required />
+      </div>
+      <div class="form-group">
+        <label>Tariff Range:</label>
+        <input type="text" [(ngModel)]="currentTarifRange" name="tarifRange" required />
+      </div>
+  
+      <div class="form-buttons">
+        <button type="button" class="btn-secondary" (click)="resetForm()">Cancelar</button>
+        <button type="submit" class="btn-primary">{{ isEditing ? 'Actualizar' : 'Agregar' }} Tariff</button>
+      </div>
+    </form>
+  
+    <!-- Lista de tarifas -->
+    <h2>List of Tariffs</h2>
+    <table class="tariff-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Cost</th>
+          <th>Range</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tariff of tariffs">
+          <td>{{ tariff.id }}</td>
+          <td>{{ tariff.cost }}</td>
+          <td>{{ tariff.tarifRange }}</td>
+          <td> 
+            <button (click)="deleteTariff(tariff.id)" class="btn-icon"><i class="fas fa-trash"></i></button>
+            <button (click)="editTariff(tariff)" class="btn-icon"><i class="fas fa-edit"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

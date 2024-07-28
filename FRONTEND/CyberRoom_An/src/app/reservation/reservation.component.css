@@ -1,0 +1,139 @@
+/* Contenedor para el formulario y la lista de reservas */
+.reservation-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Espacio entre el formulario y la lista */
+  margin: 20px;
+}
+
+/* Contenedor para crear reserva */
+.new_reservation {
+  background-color: #1a1e29; /* Fondo azul oscuro */
+  border: 1px solid #01c38e; /* Borde verde brillante */
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1; /* Permite que el contenedor se ajuste */
+  color: #ffffff; /* Texto blanco */
+}
+
+/* Formulario en columna */
+.new_reservation form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Elementos del formulario */
+.new_reservation div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.new_reservation label {
+  margin-right: 10px;
+  font-weight: bold;
+  flex: 1; /* Alinea la etiqueta a la derecha */
+  text-align: right; /* Alinea el texto a la derecha */
+}
+
+.new_reservation input {
+  flex: 2; /* Expande el campo de entrada para llenar el espacio */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Botón de enviar */
+.new_reservation button {
+  background-color: #01c38e; /* Verde brillante */
+  color: #ffffff; /* Texto blanco */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.new_reservation button:hover {
+  background-color: #019a6e; /* Verde más oscuro en hover */
+}
+
+/* Contenedor para lista de reservas */
+.list_reservation {
+  background-color: #1a1e29; /* Fondo azul oscuro */
+  border: 1px solid #01c38e; /* Borde verde brillante */
+  border-radius: 8px;
+  padding: 20px;
+  flex: 2; /* Permite que el contenedor ocupe más espacio */
+  color: #ffffff; /* Texto blanco */
+}
+
+/* Lista de reservas */
+.list_reservation ul {
+  list-style: none;
+  padding: 0;
+}
+
+.list_reservation li {
+  background-color: #132d46; /* Fondo azul oscuro para cada ítem */
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  color: #ffffff; /* Texto blanco */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Botones dentro de la lista */
+.list_reservation button {
+  background-color: #01c38e; /* Verde brillante */
+  color: #ffffff; /* Texto blanco */
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.list_reservation button:hover {
+  background-color: #019a6e; /* Verde más oscuro en hover */
+}
+
+.list_reservation .btn-danger {
+  background-color: #f44336; /* Rojo brillante */
+}
+
+.list_reservation .btn-danger:hover {
+  background-color: #d32f2f; /* Rojo más oscuro en hover */
+}
+
+/* Estilos adicionales para el formulario dentro de la lista */
+.list_reservation .form-group {
+  margin-bottom: 15px;
+}
+
+.list_reservation .form-control {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Distribución horizontal para los elementos de la lista */
+.list_reservation .form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list_reservation .form-group label {
+  flex: 1;
+}
+
+.list_reservation .form-group input {
+  flex: 2;
+}

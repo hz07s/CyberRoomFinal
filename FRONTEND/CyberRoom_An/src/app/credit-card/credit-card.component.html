@@ -1,0 +1,23 @@
+<div>
+    <form [formGroup]="creditCardForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="idUser">User ID:</label>
+        <input id="idUser" formControlName="idUser" type="text">
+      </div>
+      <div>
+        <label for="creditCardBalance">Credit Card Balance:</label>
+        <input id="creditCardBalance" formControlName="creditCardBalance" type="text">
+      </div>
+      <button type="submit">{{ editMode ? 'Update' : 'Create' }}</button>
+      <button type="button" (click)="resetForm()">Cancel</button>
+    </form>
+  
+    <ul>
+      <li *ngFor="let creditCard of creditCards">
+        {{ creditCard.idUser }} - {{ creditCard.creditCardBalance }}
+        <button (click)="onEdit(creditCard)">Edit</button>
+        <button (click)="onDelete(creditCard.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+  

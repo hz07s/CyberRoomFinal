@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user.model';
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-user',
@@ -30,6 +31,8 @@ export class UserComponent {
     age: 0,
   };
   refreshToken = '';
+  passwordVisible = false;
+  registerPasswordVisible = false;
 
   constructor(private userService: UserService) {}
 
@@ -53,12 +56,28 @@ export class UserComponent {
     this.userService.register(this.user).subscribe(
       (response) => {
         console.log('Registro exitoso:', response);
+        this.closeRegisterModal();
       },
       (error) => {
         console.error('Error en el registro:', error);
       }
     );
   }
+
+  // login(): void {
+  //   this.userService.login(this.credentials).subscribe(
+  //     (response) => {
+  //       console.log('Login successful:', response);
+  //       localStorage.setItem('access_token', response.access);
+  //       localStorage.setItem('refresh_token', response.refresh);
+  //       this.refreshToken = response.refresh;
+  //       this.getUserProfile();
+  //     },
+  //     (error) => {
+  //       console.error('Login error:', error);
+  //     }
+  //   );
+  // }
 
   login(): void {
     this.userService.login(this.credentials).subscribe(
@@ -69,6 +88,7 @@ export class UserComponent {
         localStorage.setItem('user_type', response.user_type);
         this.refreshToken = response.refresh;
         this.getUserProfile();
+        this.closeLoginModal();
       },
       (error) => {
         console.error('Login error:', error);
@@ -93,6 +113,7 @@ export class UserComponent {
       );
     }
   }
+  
 
   edit(): void {
     this.userService.edit(this.editedUser).subscribe(
@@ -104,4 +125,49 @@ export class UserComponent {
       }
     );
   }
+  closeLoginModal() {
+    const loginModal = document.getElementById('loginModal') as any;
+    if (loginModal) {
+      const modal = bootstrap.Modal.getInstance(loginModal);
+      if (modal) {
+        modal.hide();
+      }
+    }
+  }
+
+  closeRegisterModal() {
+    const registerModal = document.getElementById('registerModal') as any;
+    if (registerModal) {
+      const modal = bootstrap.Modal.getInstance(registerModal);
+      if (modal) {
+        modal.hide();
+      }
+    }
+  }
+  togglePassword() {
+    this.passwordVisible = !this.passwordVisible;
+    const passwordField = document.getElementById('password') as HTMLInputElement;
+    passwordField.type = this.passwordVisible ? 'text' : 'password';
+    const icon = document.getElementById('passwordToggleIcon') as HTMLElement;
+    icon.classList.toggle('bi-eye', !this.passwordVisible);
+    icon.classList.toggle('bi-eye-slash', this.passwordVisible);
+  }
+
+  toggleRegisterPassword() {
+    this.registerPasswordVisible = !this.registerPasswordVisible;
+    const passwordField = document.getElementById('registerPassword') as HTMLInputElement;
+    passwordField.type = this.registerPasswordVisible ? 'text' : 'password';
+    const icon = document.getElementById('registerPasswordToggleIcon') as HTMLElement;
+    icon.classList.toggle('bi-eye', !this.registerPasswordVisible);
+    icon.classList.toggle('bi-eye-slash', this.registerPasswordVisible);
+  }
+  toggleConfirmPassword() {
+    this.registerPasswordVisible = !this.registerPasswordVisible;
+    const passwordField = document.getElementById('confirmPassword') as HTMLInputElement;
+    passwordField.type = this.registerPasswordVisible ? 'text' : 'password';
+    const icon = document.getElementById('registerPasswordToggleIcon2') as HTMLElement;
+    icon.classList.toggle('bi-eye', !this.registerPasswordVisible);
+    icon.classList.toggle('bi-eye-slash', this.registerPasswordVisible);
+  }
 }
+

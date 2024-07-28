@@ -1,0 +1,118 @@
+/* General Header Styles */
+.header_section {
+  background-color: #1a1e29; /* Fondo gris oscuro principal */
+  color: #ffffff; /* Texto blanco */
+  padding: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
+}
+
+.custom_nav-container {
+  display: flex;
+  justify-content: space-between; /* Espaciado entre el logo y el contenido */
+  align-items: center; /* Alineación vertical centrada */
+  padding: 0 20px; /* Espaciado interno */
+  border-bottom: 2px solid #01c38e; /* Línea verde brillante para destacar */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  height: 50px;
+}
+
+.navbar-nav-container {
+  display: flex;
+  flex-grow: 1; /* Permite que el contenedor de navegación ocupe el espacio restante */
+  justify-content: flex-end; /* Alinea los elementos de navegación a la derecha */
+}
+
+.navbar-nav {
+  display: flex;
+  list-style-type: none; /* Eliminar puntos de lista */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 15px; /* Espaciado entre los elementos del menú */
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff; /* Color blanco para los enlaces */
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 5px; /* Bordes redondeados */
+  text-decoration: none; /* Quitar subrayado */
+  background-color: #132d46; /* Fondo azul oscuro de los enlaces */
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: #01c38e; /* Fondo verde brillante al pasar el ratón */
+  color: #ffffff; /* Texto blanco en el hover */
+}
+
+.quote_btn-container {
+  display: flex;
+  align-items: center;
+}
+
+.btn-outline-success {
+  border-radius: 20px; /* Bordes redondeados */
+  color: #01c38e; /* Texto verde brillante */
+  border: 1px solid #01c38e; /* Borde verde brillante */
+}
+
+.btn-outline-success:hover {
+  background-color: #01c38e; /* Fondo verde brillante en hover */
+  color: #ffffff; /* Texto blanco en hover */
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+}
+
+.language-selector a {
+  color: #ffffff;
+  margin: 0 5px;
+  text-decoration: none;
+}
+
+.language-selector a:hover {
+  color: #01c38e; /* Color verde brillante en hover */
+}
+
+/* Estilos Responsivos */
+@media (max-width: 991px) {
+  .navbar-nav {
+    display: none; /* Oculta el menú de navegación en pantallas pequeñas */
+  }
+
+  .navbar-toggler {
+    display: block; /* Muestra el botón de menú en pantallas pequeñas */
+  }
+
+  .navbar-collapse.show .navbar-nav {
+    display: flex; /* Muestra el menú de navegación cuando el contenedor está colapsado */
+    flex-direction: column; /* Menú vertical en dispositivos pequeños */
+    width: 100%; /* Asegura que el menú ocupe todo el ancho */
+    margin-top: 15px; /* Espaciado adicional arriba del menú colapsado */
+  }
+
+  .quote_btn-container {
+    margin-top: 15px; /* Espaciado adicional arriba del contenedor */
+  }
+
+  .language-selector {
+    margin-top: 10px; /* Espaciado adicional arriba del selector de idioma */
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none; /* Oculta el botón de menú en pantallas grandes */
+  }
+}

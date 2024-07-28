@@ -1,0 +1,25 @@
+.main-container {
+    display: flex;
+    height: auto;
+    min-height: 880px;
+    background-color: #2a303b; 
+}
+
+.admin-sidebar {
+    width: auto;
+    height: auto; /* Ancho de la barra lateral */
+    background-color: #1a1e29; /* Fondo gris oscuro */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    margin: 20px; /* Espacio desde el borde izquierdo de la pantalla */
+    padding-left: 20px; /* Espacio adicional interno desde el borde izquierdo del sidebar */
+    flex-direction: column;
+    display: flex;
+}
+
+.content-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto; /* Permite desplazarse verticalmente si el contenido es largo */
+}

@@ -1,0 +1,168 @@
+/* Contenedor principal */
+.container {
+  padding: 20px;
+  background-color: #1a1e29; /* Fondo oscuro */
+  color: #ffffff; /* Texto blanco */
+  border-radius: 8px;
+  border: 1px solid #01c38e; /* Borde verde brillante */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Títulos */
+.container h1 {
+  font-size: 28px;
+  color: #ffffff; /* Texto blanco */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Estilo para el formulario */
+.machine-form {
+  display: flex;
+  flex-direction: column;
+  background-color: #132d46; /* Fondo azul más oscuro */
+  border: 1px solid #01c38e; /* Borde verde brillante */
+  border-radius: 8px;
+  padding: 15px; /* Reducir padding */
+  margin-bottom: 20px;
+}
+
+/* Secciones del formulario */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Reducir espaciado entre secciones */
+}
+
+/* Estilos para los grupos de formulario */
+.form-group {
+  display: flex;
+  flex-direction: column; /* Columna para evitar espaciado innecesario */
+  gap: 5px; /* Reducir espaciado entre el label y el input */
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #ffffff; /* Texto blanco */
+}
+
+/* Estilos para los campos de entrada */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 8px; /* Reducir padding */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px; /* Reducir tamaño de fuente */
+  background-color: #ffffff; /* Fondo blanco */
+  color: #000000; /* Texto negro */
+}
+
+/* Estilos para el textarea */
+textarea {
+  resize: vertical;
+}
+
+/* Botones del formulario */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px; /* Reducir margen superior */
+}
+
+.btn-primary {
+  background-color: #01c38e; /* Verde brillante */
+  color: #ffffff; /* Texto blanco */
+  border: none;
+  padding: 8px 16px; /* Reducir padding */
+  border-radius: 5px;
+  font-size: 14px; /* Reducir tamaño de fuente */
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #019a6e; /* Verde más oscuro en hover */
+}
+
+.btn-secondary {
+  background-color: #f44336; /* Rojo brillante */
+  color: #ffffff; /* Texto blanco */
+  border: none;
+  padding: 8px 16px; /* Reducir padding */
+  border-radius: 5px;
+  font-size: 14px; /* Reducir tamaño de fuente */
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #d32f2f; /* Rojo más oscuro en hover */
+}
+
+/* Estilos para la tabla de máquinas */
+.machine-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.machine-table th,
+.machine-table td {
+  padding: 8px; /* Reducir padding */
+  border: 1px solid #01c38e; /* Borde verde brillante */
+  text-align: center;
+}
+
+.machine-table th {
+  background-color: #132d46; /* Fondo azul más oscuro */
+  color: #ffffff; /* Texto blanco */
+}
+
+.machine-table td {
+  background-color: #1a1e29; /* Fondo oscuro */
+  color: #ffffff; /* Texto blanco */
+}
+
+/* Botones de la tabla */
+.btn-edit {
+  background-color: #01c38e; /* Verde brillante */
+  color: #ffffff; /* Texto blanco */
+  padding: 6px 12px; /* Reducir padding */
+  border-radius: 5px;
+  border: none;
+  font-size: 12px; /* Reducir tamaño de fuente */
+  cursor: pointer;
+}
+
+.btn-edit:hover {
+  background-color: #019a6e; /* Verde más oscuro en hover */
+}
+
+.btn-delete {
+  background-color: #f44336; /* Rojo brillante */
+  color: #ffffff; /* Texto blanco */
+  padding: 6px 12px; /* Reducir padding */
+  border-radius: 5px;
+  border: none;
+  font-size: 12px; /* Reducir tamaño de fuente */
+  cursor: pointer;
+  margin-left: 8px; /* Ajustar margen */
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f; /* Rojo más oscuro en hover */
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px; /* Ajusta el tamaño del icono si es necesario */
+  color: #01c38e; /* Ajusta el color del icono según tu paleta */
+  padding: 0;
+}
+
+.btn-icon i {
+  margin: 0 8px; /* Ajusta el espacio entre iconos según sea necesario */
+}
+

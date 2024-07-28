@@ -1,124 +1,152 @@
-/* Estilos generales para el contenedor principal */
-div {
-    background-color: #1a1e29; /* Fondo gris oscuro */
-    border: 1px solid #01c38e; /* Borde verde brillante */
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 800px;
-    margin: 20px auto;
-    color: #ffffff; /* Texto blanco */
-  }
-  
-  /* Estilos para los encabezados */
-  h2 {
-    color: #ffffff; /* Texto blanco para los encabezados */
-    font-size: 24px; /* Tamaño de fuente aumentado */
-    margin-bottom: 15px; /* Espacio debajo del encabezado */
-  }
-  
-  /* Estilos para los formularios */
-  form {
-    display: grid;
-    gap: 15px; /* Espacio entre los elementos del formulario */
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="number"],
-  select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #01c38e; /* Borde verde brillante */
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #132d46; /* Fondo azul oscuro para los campos de entrada */
-    color: #ffffff; /* Texto blanco en los campos de entrada */
-  }
-  
-  button[type="submit"] {
-    background-color: #01c38e; /* Verde brillante */
-    color: #ffffff; /* Texto blanco */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #019a6e; /* Verde más oscuro en hover */
-  }
-  
-  button.logout {
-    background-color: #f44336; /* Rojo brillante */
-    color: #ffffff; /* Texto blanco */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  button.logout:hover {
-    background-color: #d32f2f; /* Rojo más oscuro en hover */
-  }
-  
-  /* Estilos específicos para la edición de usuario */
-  .user-edit {
-    background-color: #1a1e29; /* Fondo gris oscuro */
-    border: 1px solid #01c38e; /* Borde verde brillante */
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .user-edit .form-group {
-    margin-bottom: 15px; /* Espacio entre los grupos de formulario */
-  }
-  
-  .user-edit label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: block;
-  }
-  
-  .user-edit .form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #01c38e; /* Borde verde brillante */
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #132d46; /* Fondo azul oscuro para los campos de entrada */
-    color: #ffffff; /* Texto blanco en los campos de entrada */
-  }
-  
-  /* Estilos para la lista de usuarios */
-  ul {
-    list-style-type: none; /* Eliminar los puntos de la lista */
-    padding: 0;
-  }
-  
-  li {
-    background-color: #132d46; /* Fondo azul oscuro para los elementos de la lista */
-    border: 1px solid #01c38e; /* Borde verde brillante */
-    border-radius: 5px;
-    margin-bottom: 10px;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  li button {
-    background-color: #01c38e; /* Verde brillante */
-    color: #ffffff; /* Texto blanco */
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
-  
-  li button:hover {
-    background-color: #019a6e; /* Verde más oscuro en hover */
-  }
+/* Estilos para el modal */
+.modal-content {
+  border-radius: 10px; /* Bordes redondeados para el modal */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+  background-color: #132d46; /* Fondo azul oscuro para el contenido del modal */
+}
+
+/* Estilo para el encabezado del modal */
+.modal-header {
+  background-color: #01c38e; /* Color de fondo verde brillante para el encabezado */
+  color: #ffffff; /* Texto blanco */
+  border-bottom: 2px solid #019a6e; /* Línea inferior verde más oscuro */
+  padding: 1rem; /* Espaciado interno */
+}
+
+/* Estilo para el título del modal */
+.modal-title {
+  font-size: 1.5rem; /* Tamaño del texto del título */
+  font-weight: bold; /* Negrita para el título */
+}
+
+/* Estilo para el botón de cierre del modal */
+.btn-close {
+  filter: invert(1); /* Cambia el color del ícono de cierre a blanco */
+}
+
+/* Estilo para el cuerpo del modal */
+.modal-body {
+  padding: 2rem; /* Espaciado interno */
+  background-color: #1a1e29; /* Fondo gris oscuro para el cuerpo del modal */
+  border-top: 1px solid #01c38e; /* Línea superior verde brillante */
+}
+
+/* Estilo para los formularios dentro del modal */
+.form-label {
+  font-weight: 600; /* Etiquetas en negrita */
+  color: #ffffff; /* Color de texto blanco para las etiquetas */
+}
+
+.form-control {
+  border-radius: 5px; /* Bordes redondeados para los campos del formulario */
+  border: 1px solid #01c38e; /* Borde verde brillante para los campos */
+  background-color: #132d46; /* Fondo azul oscuro para los campos */
+  color: #ffffff; /* Texto blanco en los campos */
+}
+
+.form-control:focus {
+  border-color: #019a6e; /* Color de borde verde más oscuro cuando el campo está enfocado */
+  box-shadow: 0 0 0 0.2rem rgba(1, 195, 142, 0.25); /* Sombra de enfoque verde */
+}
+.btn-close:focus,
+.btn-close:active {
+  border-color: #ced4da; /* Color del borde gris claro cuando el botón está enfocado o presionado */
+  box-shadow: 0 0 0 0.2rem rgba(206, 212, 218, 0.25); /* Sombra de enfoque gris claro */
+}
+/* Estilo para los botones en el formulario */
+.btn {
+  display: inline-block; /* Asegura que los botones se alineen correctamente */
+  padding: 0.75rem 1.5rem; /* Espaciado interno para los botones */
+  border-radius: 5px; /* Bordes redondeados para los botones */
+  font-size: 1rem; /* Tamaño de fuente para los botones */
+  font-weight: 600; /* Negrita para el texto del botón */
+  line-height: 1.5; /* Espaciado en línea para mejorar la legibilidad */
+  text-align: center; /* Centra el texto del botón */
+  cursor: pointer; /* Cursor de mano para indicar que el botón es clickeable */
+  transition: background-color 0.3s, border-color 0.3s; /* Transición suave para cambios de color */
+  border: 1px solid transparent; /* Borde transparente para mantener el tamaño consistente */
+  margin-top: 1rem; /* Espaciado superior para los botones */
+}
+
+/* Estilo para el contenedor de botones */
+.button-container {
+  display: flex; /* Usa flexbox para alinear los botones */
+  gap: 1rem; /* Espacio entre los botones */
+  justify-content: center; /* Centra los botones horizontalmente */
+}
+
+/* Estilos para el botón primario */
+.btn-primary {
+  background-color: #01c38e; /* Color de fondo verde brillante */
+  border-color: #01c38e; /* Borde verde brillante */
+  color: #ffffff; /* Texto blanco */
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #019a6e; /* Color de fondo verde más oscuro en hover/focus */
+  border-color: #017a58; /* Borde verde más oscuro en hover/focus */
+}
+
+/* Estilos para el botón secundario */
+.btn-secondary {
+  background-color: #6c757d; /* Color de fondo gris */
+  border-color: #6c757d; /* Borde gris */
+  color: #ffffff; /* Texto blanco */
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: #5a6268; /* Color de fondo gris más oscuro en hover/focus */
+  border-color: #545b62; /* Borde gris más oscuro en hover/focus */
+}
+
+/* Estilos para el botón de registro */
+.btn-register {
+  background-color: #01c38e; /* Color de fondo verde brillante */
+  border-color: #01c38e; /* Borde verde brillante */
+  color: #ffffff; /* Texto blanco */
+}
+
+.btn-register:hover,
+.btn-register:focus {
+  background-color: #019a6e; /* Color de fondo verde más oscuro en hover/focus */
+  border-color: #017a58; /* Borde verde más oscuro en hover/focus */
+}
+
+/* Clase para el desenfoque del fondo */
+.backdrop.show {
+  backdrop-filter: blur(5px); /* Aplica un desenfoque de 5px */
+}
+
+/* Estilo para el botón de mostrar/ocultar contraseña */
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0; /* Alinea el botón al borde derecho del contenedor */
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  z-index: 10;
+}
+
+.password-toggle i {
+  font-size: 1.2rem;
+  color: #6c757d; /* Color del icono */
+}
+
+.password-toggle:hover i {
+  color: #01c38e; /* Color del icono en hover */
+}
+
+.position-relative {
+  position: relative;
+}
+
+.form-control {
+  padding-right: 3rem; /* Ajusta el espacio para el botón de mostrar/ocultar contraseña */
+}
+
+.backdrop.show {
+  filter: blur(0px); 
+}

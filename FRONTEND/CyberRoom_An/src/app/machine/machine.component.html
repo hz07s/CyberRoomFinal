@@ -1,0 +1,114 @@
+<div class="container">
+  <h2>{{ isEditing ? 'Actualizar' : 'Agregar' }} Máquina</h2>
+
+  <form (ngSubmit)="onSubmit()" class="machine-form">
+    <!-- Formulario para agregar o editar una máquina -->
+    <div class="form-group">
+      <label>Nombre:</label>
+      <input type="text" [(ngModel)]="currentMachine.machineName" name="machineName" required />
+    </div>
+    <div class="form-group">
+      <label>Rango:</label>
+      <select [(ngModel)]="currentMachine.machineRange" name="machineRange" required>
+        <option *ngFor="let tariff of tariffs" [ngValue]="tariff.id">{{ tariff.tarifRange }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Usuario Asignado:</label>
+      <input type="text" [(ngModel)]="currentMachine.assignedUser" name="assignedUser" />
+    </div>
+    <div class="form-group">
+      <label>Estado:</label>
+      <select [(ngModel)]="currentMachine.machineStatus" name="machineStatus" required>
+        <option *ngFor="let state of machineStates" [ngValue]="state.value">{{ state.label }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Sistema Operativo:</label>
+      <input type="text" [(ngModel)]="currentMachine.operatingSystem" name="operatingSystem" />
+    </div>
+    <div class="form-group">
+      <label>Software Instalado:</label>
+      <input type="text" [(ngModel)]="currentMachine.installedSoftware" name="installedSoftware" />
+    </div>
+    <div class="form-group">
+      <label>Último Mantenimiento:</label>
+      <input type="date" [(ngModel)]="currentMachine.lastMaintenance" name="lastMaintenance" />
+    </div>
+    <div class="form-group">
+      <label>Fecha de Adquisición:</label>
+      <input type="date" [(ngModel)]="currentMachine.acquisitionDate" name="acquisitionDate" />
+    </div>
+    <div class="form-group">
+      <label>Dirección IP:</label>
+      <input type="text" [(ngModel)]="currentMachine.ipAddress" name="ipAddress" />
+    </div>
+    <div class="form-group">
+      <label>Dirección MAC:</label>
+      <input type="text" [(ngModel)]="currentMachine.macAddress" name="macAddress" />
+    </div>
+    <div class="form-group">
+      <label>Procesador:</label>
+      <input type="text" [(ngModel)]="currentMachine.processor" name="processor" />
+    </div>
+    <div class="form-group">
+      <label>RAM (GB):</label>
+      <input type="number" [(ngModel)]="currentMachine.ram" name="ram" />
+    </div>
+    <div class="form-group">
+      <label>Disco Duro:</label>
+      <input type="text" [(ngModel)]="currentMachine.hardDrive" name="hardDrive" />
+    </div>
+    <div class="form-group">
+      <label>Ubicación:</label>
+      <input type="text" [(ngModel)]="currentMachine.location" name="location" />
+    </div>
+    <div class="form-group">
+      <label>Notas Adicionales:</label>
+      <textarea [(ngModel)]="currentMachine.additionalNotes" name="additionalNotes"></textarea>
+    </div>
+
+    <div class="form-buttons">
+      <button type="button" class="btn-secondary" (click)="resetForm()">Cancelar</button>
+      <button type="submit" class="btn-primary">{{ isEditing ? 'Actualizar' : 'Agregar' }} Máquina</button>
+    </div>
+  </form>
+
+  <!-- Lista de máquinas -->
+  <h2>Lista de Máquinas</h2>
+  <table class="machine-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Rango</th>
+        <th>Usuario Asignado</th>
+        <th>Estado</th>
+        <th>Sistema Operativo</th>
+        <th>Procesador</th>
+        <th>RAM (GB)</th>
+        <th>Disco Duro</th>
+        <th>Notas Adicionales</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let machine of machines">
+        <td>{{ machine.idMachine }}</td>
+        <td>{{ machine.machineName }}</td>
+        <td>{{ getMachineRangeName(machine) }}</td>
+        <td>{{ machine.assignedUser }}</td>
+        <td>{{ getMachineStatusLabel(machine.machineStatus) }}</td>
+        <td>{{ machine.operatingSystem }}</td>
+        <td>{{ machine.processor }}</td>
+        <td>{{ machine.ram }}</td>
+        <td>{{ machine.hardDrive }}</td>
+        <td>{{ machine.additionalNotes }}</td>
+        <td>
+          <button (click)="deleteMachine(machine.idMachine)" class="btn-icon"><i class="fas fa-trash"></i></button>
+          <button (click)="editMachine(machine)" class="btn-icon"><i class="fas fa-edit"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

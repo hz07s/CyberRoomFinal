@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>{{ isEditing ? 'Actualizar' : 'Agregar' }} Event</h2>
+
+  <form (ngSubmit)="onSubmit()" class="Event-form">
+    <!-- Formulario para agregar o editar un evento -->
+    <div class="form-group">
+      <label>Name of the event:</label>
+      <input type="text" [(ngModel)]="currentEvent.nameEvent" name="nameEvent" required />
+    </div>
+    <div class="form-group">
+      <label>Description:</label>
+      <textarea [(ngModel)]="currentEvent.description" name="description" id="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label>Start Date:</label>
+      <input type="date" [(ngModel)]="currentEvent.startDate" name="startDate" required />
+    </div>
+    <div class="form-group">
+      <label>Completion Date:</label>
+      <input type="date" [(ngModel)]="currentEvent.completionDate" name="completionDate" required />
+    </div>
+    
+    <div class="form-buttons">
+      <button type="button" class="btn-secondary" (click)="resetForm()">Cancelar</button>
+      <button type="submit" class="btn-primary">{{ isEditing ? 'Actualizar' : 'Agregar' }} Event</button>
+    </div>
+  </form>
+
+  <!-- Lista de eventos -->
+  <h2>List of Events</h2>
+  <table class="event-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>Completion Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{ event.id }}</td>
+        <td>{{ event.nameEvent }}</td>
+        <td>{{ event.startDate }}</td>
+        <td>{{ event.completionDate }}</td>
+        <td>
+          <button (click)="editEvent(event)" class="btn-icon"><i class="fas fa-edit"></i></button>
+          <button (click)="deleteEvent(event.id)" class="btn-icon"><i class="fas fa-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

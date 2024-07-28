@@ -1,0 +1,29 @@
+<div class="reserve-container">
+  <h2>Hacer una Reserva</h2>
+  <form (ngSubmit)="onSubmit()" #reserveForm="ngForm">
+    <div class="form-group">
+      <label for="machine">Máquina:</label>
+      <select id="machine" name="machine" class="form-control" [(ngModel)]="reservation.idMachine" required>
+        <option *ngFor="let machine of machines" [value]="machine.idMachine">{{ machine.machineName }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="startTime">Hora de Inicio:</label>
+      <input type="datetime-local" id="startTime" name="startTime" class="form-control" [(ngModel)]="reservation.startTime" required>
+    </div>
+    <div class="form-group">
+      <label for="endTime">Hora de Fin:</label>
+      <input type="datetime-local" id="endTime" name="endTime" class="form-control" [(ngModel)]="reservation.endTime" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Reservar</button>
+  </form>
+  <button (click)="createCheckoutSession()">Pagar</button>
+
+  <!-- Debugging: Mostrar las máquinas en un label -->
+  <div>
+    <label>Máquinas Disponibles:</label>
+    <div *ngFor="let machine of machines">
+      {{ machine.machineName }} (ID: {{ machine.idMachine }})
+    </div>
+  </div>
+</div>

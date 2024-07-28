@@ -1,0 +1,13 @@
+<div class="container events-container">
+  <h1 class="section-title">Eventos</h1>
+  <div class="events-list">
+    <div class="event-card" *ngFor="let event of events">
+      <h2 class="event-title">{{ event.nameEvent }}</h2>
+      <p class="event-dates">
+        <strong>Del:</strong> {{ event.startDate | date:'dd/MM/yyyy HH:mm' }} 
+        <strong>al</strong> {{ event.completionDate | date:'dd/MM/yyyy HH:mm' }}
+      </p>
+      <p class="event-description">{{ event.description }}</p>
+    </div>
+  </div>
+</div>

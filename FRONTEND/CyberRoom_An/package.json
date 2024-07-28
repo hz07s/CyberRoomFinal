@@ -18,6 +18,12 @@
     "@angular/platform-browser": "^14.0.0",
     "@angular/platform-browser-dynamic": "^14.0.0",
     "@angular/router": "^14.0.0",
+<<<<<<< HEAD
+    "@stripe/stripe-js": "^4.1.0",
+    "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.3",
+=======
+>>>>>>> 9048d795664d6b642211587491fd8bacfdd6a656
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

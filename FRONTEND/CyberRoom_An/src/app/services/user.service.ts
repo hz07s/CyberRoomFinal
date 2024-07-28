@@ -37,7 +37,7 @@ export class UserService {
     });
     return this.http.put<User>(`${this.apiUrl}/edit/`, userData, { headers });
   }
-
+  
   getProfile(): Observable<User> {
     const token = localStorage.getItem('access_token');
     if (token) {
@@ -53,3 +53,5 @@ export class UserService {
     }
   }
 }
+
+

@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>{{ isEditing ? 'Actualizar' : 'Agregar' }} Promotion</h2>
+
+  <form (ngSubmit)="onSubmit()" class="Promotion-form">
+    <!-- Formulario para agregar o editar una promoción -->
+    <div class="form-group">
+      <label>Name of the promotion:</label>
+      <input type="text" [(ngModel)]="currentPromotion.namePromotion" name="namePromotion" required />
+    </div>
+    <div class="form-group">
+      <label>Description:</label>
+      <textarea [(ngModel)]="currentPromotion.description" name="description" id="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label>Start Date:</label>
+      <input type="date" [(ngModel)]="currentPromotion.startDate" name="startDate" required />
+    </div>
+    <div class="form-group">
+      <label>Completion Date:</label>
+      <input type="date" [(ngModel)]="currentPromotion.completionDate" name="completionDate" required />
+    </div>
+    
+    <div class="form-buttons">
+      <button type="button" class="btn-secondary" (click)="resetForm()">Cancelar</button>
+      <button type="submit" class="btn-primary">{{ isEditing ? 'Actualizar' : 'Agregar' }} Promotion</button>
+    </div>
+  </form>
+
+  <!-- Lista de promociones -->
+  <h2>List of Promotions</h2>
+  <table class="Promotions-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>Completion Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let promotion of promotions">
+        <td>{{ promotion.id }}</td>
+        <td>{{ promotion.namePromotion }}</td>
+        <td>{{ promotion.startDate }}</td>
+        <td>{{ promotion.completionDate }}</td>
+        <td>
+          <button (click)="editPromotion(promotion)" class="btn-icon"><i class="fas fa-edit"></i></button>
+          <button (click)="deletePromotion(promotion.id)" class="btn-icon"><i class="fas fa-trash"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

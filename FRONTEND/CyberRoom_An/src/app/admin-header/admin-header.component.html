@@ -1,1 +1,49 @@
-<p>admin-header works!</p>
+<header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <!-- Logo y nombre de la marca -->
+        <div class="navbar-brand d-flex align-items-center">
+          <!-- <img src="assets/images/Logo_grande_fin_fondo.png" alt="CyberRoom Logo"> -->
+          <img src="assets/images/Logo_final_final.png" alt="CyberRoom Logo">
+        </div>
+  
+        <!-- Menú de navegación principal -->
+        <div class="navbar-nav-container">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/manage/users">Usuarios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/machine">Máquinas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/tariff">Tarifas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/reservations"  >Reservas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/transaction">Transacciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/promotion">Promociones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/event">Eventos</a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Contenedor de búsqueda y selector de idioma -->
+        <div class="quote_btn-container d-flex align-items-center ml-auto">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="handleAuthAction()">
+            {{ is_LoggedIn() ? 'Cerrar sesión' : 'Iniciar sesión' }}
+          </button>          
+        </div>
+      </nav>
+    </div>
+  </header>
+  

@@ -1,0 +1,13 @@
+<div class="container promotions-container">
+  <h1 class="section-title">Promociones</h1>
+  <div class="promotions-list">
+      <div class="promotion-card" *ngFor="let promo of promotions">
+          <h2 class="promotion-title">{{ promo.namePromotion }}</h2>
+          <p class="promotion-description">{{ promo.description }}</p>
+          <p class="promotion-dates">
+              <strong>Del:</strong> {{ promo.startDate | date:'dd/MM/yyyy' }} 
+              <strong>al</strong> {{ promo.completionDate | date:'dd/MM/yyyy' }}
+          </p>
+      </div>
+  </div>
+</div>

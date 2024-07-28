@@ -1,0 +1,151 @@
+/* Contenedor principal */
+.container {
+    padding: 20px;
+    background-color: #1a1e29; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco */
+    border-radius: 8px;
+    border: 1px solid #01c38e; /* Borde verde brillante */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Títulos */
+.container h1 {
+    color: #ffffff; /* Texto blanco */
+    margin-bottom: 20px;
+}
+
+/* Formulario */
+.tariff-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #132d46; /* Fondo azul más oscuro */
+    border: 1px solid #01c38e; /* Borde verde brillante */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Elementos del formulario */
+.tariff-form .form-group {
+    display: flex;
+    flex-direction: column; /* Cambiado para columna */
+    margin-bottom: 15px;
+}
+
+.tariff-form label {
+    font-weight: bold;
+    color: #ffffff; /* Texto blanco */
+    margin-bottom: 5px; /* Espacio entre el label y el campo */
+}
+
+.tariff-form input,
+.tariff-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto negro */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Botones del formulario */
+.tariff-form .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.tariff-form .btn-primary {
+    background-color: #01c38e; /* Verde brillante */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tariff-form .btn-primary:hover {
+    background-color: #019a6e; /* Verde más oscuro en hover */
+}
+
+.tariff-form .btn-secondary {
+    background-color: #f44336; /* Rojo brillante */
+    color: #ffffff; /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.tariff-form .btn-secondary:hover {
+    background-color: #d32f2f; /* Rojo más oscuro en hover */
+}
+
+/* Tabla de tarifas */
+.tariff-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tariff-table th,
+.tariff-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.tariff-table th {
+    background-color: #132d46; /* Fondo azul más oscuro */
+    color: #ffffff; /* Texto blanco */
+}
+
+.tariff-table tbody tr:hover {
+    background-color: #1a1e29; /* Fondo oscuro al pasar el ratón */
+}
+
+.tariff-table .btn-edit,
+.tariff-table .btn-delete {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ffffff; /* Texto blanco */
+}
+
+.tariff-table .btn-edit {
+    background-color: #01c38e; /* Verde brillante */
+}
+
+.tariff-table .btn-edit:hover {
+    background-color: #019a6e; /* Verde más oscuro en hover */
+}
+
+.tariff-table .btn-delete {
+    background-color: #f44336; /* Rojo brillante */
+    margin-left: 10px;
+}
+
+.tariff-table .btn-delete:hover {
+    background-color: #d32f2f; /* Rojo más oscuro en hover */
+}
+
+/* Botones icono */
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px; /* Ajusta el tamaño del icono si es necesario */
+    color: #01c38e; /* Ajusta el color del icono según tu paleta */
+    padding: 0;
+}
+
+.btn-icon i {
+    margin: 0 8px; /* Ajusta el espacio entre iconos según sea necesario */
+}
