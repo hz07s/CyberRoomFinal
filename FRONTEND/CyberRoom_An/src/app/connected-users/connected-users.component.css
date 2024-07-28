@@ -1,0 +1,32 @@
+.connected-users-container {
+    background-color: #1a1e29; /* Fondo gris oscuro */
+    border: 1px solid #01c38e; /* Borde verde brillante */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: 15px;
+    text-align: center;
+    color: #ffffff; /* Texto blanco */
+  }
+  
+  .connected-users-container h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .connected-users-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .connected-users-list li {
+    padding: 10px;
+    border-bottom: 1px solid #01c38e; /* Línea verde brillante */
+  }
+  
+  .connected-users-list li:last-child {
+    border-bottom: none;
+  }
+  
