@@ -8,7 +8,8 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn = false; // Asume que no está autenticado al inicio
+  isLoggedIn = false;
+  // Asume que no está autenticado al inicio
 
   constructor(private router: Router, private userService: UserService) { } // Inyecta el router
 
@@ -24,7 +25,8 @@ export class HeaderComponent implements OnInit {
 
   handleAuthAction() {
     const refreshToken = localStorage.getItem('refresh_token');
-
+    console.log('Refresh Token:', refreshToken);
+  
     if (refreshToken) {
       this.userService.logout(refreshToken).subscribe(
         (response) => {
@@ -32,16 +34,17 @@ export class HeaderComponent implements OnInit {
           localStorage.removeItem('access_token');
           localStorage.removeItem('refresh_token');
           localStorage.removeItem('user_type');
-          console.log("removido");
+          localStorage.removeItem('user');
+          console.log("Datos removidos");
+          this.isLoggedIn = false;
+          this.router.navigate(['/home']); 
         },
         (error) => {
           console.error('Logout error:', error);
         }
       );
-      this.isLoggedIn = false;
-      this.router.navigate(['/home']); // Redirige a la página principal o cualquier otra página
     } else {
-      this.router.navigate(['/login']); // Redirige a la página de login
+      this.router.navigate(['/login']); 
     }
   }
 

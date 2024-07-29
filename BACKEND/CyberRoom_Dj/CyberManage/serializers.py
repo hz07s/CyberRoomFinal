@@ -8,6 +8,7 @@ from .models import (
     Transaction,
     Event,
     Promotion,
+    )
 
     # USER SERIALIZER
 class UserSerializer(serializers.ModelSerializer):
@@ -104,104 +105,8 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = '__all__'
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 9048d795664d6b642211587491fd8bacfdd6a656
-
     # PROMOTION SERIALIZER
-
 class PromotionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Promotion
         fields = '__all__'
-<<<<<<< HEAD
-    # ----------------------------------------- END -----------------------------------------
-=======
->>>>>>> 9048d795664d6b642211587491fd8bacfdd6a656

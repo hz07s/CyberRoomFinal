@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, timer } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Machine } from '../models/machine';
+import { Tariff } from '../models/tariff';
 import { switchMap } from 'rxjs/operators';
 
 @Injectable({
@@ -38,5 +39,8 @@ export class MachineService {
     return timer(0, interval).pipe(
       switchMap(() => this.getMachineStats())
     );
+  }
+  getTariffs(): Observable<Tariff[]> {
+    return this.http.get<Tariff[]>(`${environment.apiBaseUrl}/tariffs/list`);
   }
 }

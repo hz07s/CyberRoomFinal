@@ -79,3 +79,153 @@
 .reserve-container button:hover {
   background-color: #e0f2f1; /* Fondo claro en hover */
 }
+  
+.reserve-container .form-group {
+margin-bottom: 15px;
+}
+
+.reserve-container .form-control {
+background-color: #ffffff;
+color: #000000;
+}
+
+.reserve-container .btn-primary {
+background-color: #01c38e;
+border: none;
+color: #ffffff;
+}
+
+.reserve-container label {
+font-weight: bold;
+}
+
+.reserve-container div > div {
+color: #ffffff;
+}
+/* Contenedor de máquinas disponibles */
+.reserve-container .available-machines {
+    margin-top: 20px; /* Espacio arriba del contenedor */
+  }
+  
+  .reserve-container .available-machines label {
+    font-weight: bold;
+    color: #ffffff; /* Texto blanco */
+    margin-bottom: 10px; /* Espacio debajo de la etiqueta */
+    display: block; /* Asegura que la etiqueta ocupe toda la línea */
+  }
+  
+  .reserve-container .available-machines .machine-item {
+    background-color: #1a1e29; /* Fondo oscuro para cada máquina */
+    color: #ffffff; /* Texto blanco */
+    padding: 10px;
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Espacio entre cada máquina */
+    border: 1px solid #01c38e; /* Borde verde brillante */
+    display: flex;
+    justify-content: space-between; /* Espacio entre nombre y rango */
+    align-items: center; /* Alineación vertical */
+  }
+  
+  .reserve-container .available-machines .machine-item .machine-name {
+    font-size: 16px;
+    font-weight: bold; /* Nombre en negrita */
+  }
+  
+  .reserve-container .available-machines .machine-item .machine-range {
+    font-size: 14px;
+    color: #01c38e; /* Color verde brillante para el rango */
+  }
+  .reserve-container .available-machines {
+    margin-top: 20px; /* Espacio arriba del contenedor */
+  }
+  
+  .reserve-container .available-machines label {
+    font-weight: bold;
+    color: #ffffff; /* Texto blanco */
+    margin-bottom: 10px; /* Espacio debajo de la etiqueta */
+    display: block; /* Asegura que la etiqueta ocupe toda la línea */
+  }
+  
+  .reserve-container .available-machines .machine-range-group {
+    margin-bottom: 20px; /* Espacio entre grupos de rangos */
+  }
+  
+  .reserve-container .available-machines .range-title {
+    font-size: 18px;
+    color: #01c38e; /* Color verde brillante para el rango */
+    margin-bottom: 10px; /* Espacio debajo del título del rango */
+    border-bottom: 2px solid #01c38e; /* Línea decorativa debajo del título del rango */
+    padding-bottom: 5px; /* Espacio debajo del texto del título */
+  }
+  
+  .reserve-container .available-machines .machine-item {
+    background-color: #1a1e29; /* Fondo oscuro para cada máquina */
+    color: #ffffff; /* Texto blanco */
+    padding: 10px;
+    border-radius: 8px; /* Bordes redondeados */
+    margin-bottom: 10px; /* Espacio entre cada máquina */
+    border: 1px solid #01c38e; /* Borde verde brillante */
+  }
+
+  /* Contenedor del modal */
+.modal-content {
+  background-color: #132d46; /* Fondo azul más oscuro */
+  border: 1px solid #01c38e; /* Borde verde brillante */
+  border-radius: 8px;
+}
+
+/* Encabezado del modal */
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-title {
+  color: #ffffff; /* Texto blanco */
+}
+
+.btn-close {
+  background-color: #01c38e; /* Botón de cierre verde */
+}
+
+/* Cuerpo del modal */
+.modal-body {
+  padding: 2rem;
+}
+
+.qr-code {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px; /* Ajusta la altura máxima según sea necesario */
+  border: 2px solid #01c38e; /* Agrega un borde verde brillante */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
+
+/* Pie del modal */
+.modal-footer .btn-cancel {
+  background-color: #adb5bd; /* Gris claro */
+  color: #000000; /* Texto negro */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modal-footer .btn-cancel:hover {
+  background-color: #6c757d; /* Gris más oscuro en hover */
+}
+
+.modal-footer .btn-primary {
+  background-color: #01c38e; /* Verde brillante */
+  color: #ffffff; /* Texto blanco */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #019a6e; /* Verde más oscuro en hover */
+}

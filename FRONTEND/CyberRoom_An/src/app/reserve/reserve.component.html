@@ -1,29 +1,56 @@
 <div class="reserve-container">
-  <h2>Hacer una Reserva</h2>
-  <form (ngSubmit)="onSubmit()" #reserveForm="ngForm">
-    <div class="form-group">
-      <label for="machine">Máquina:</label>
-      <select id="machine" name="machine" class="form-control" [(ngModel)]="reservation.idMachine" required>
-        <option *ngFor="let machine of machines" [value]="machine.idMachine">{{ machine.machineName }}</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="startTime">Hora de Inicio:</label>
-      <input type="datetime-local" id="startTime" name="startTime" class="form-control" [(ngModel)]="reservation.startTime" required>
-    </div>
-    <div class="form-group">
-      <label for="endTime">Hora de Fin:</label>
-      <input type="datetime-local" id="endTime" name="endTime" class="form-control" [(ngModel)]="reservation.endTime" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Reservar</button>
-  </form>
-  <button (click)="createCheckoutSession()">Pagar</button>
+    <h2>Hacer una Reserva</h2>
+    <form (ngSubmit)="onSubmit()" #reserveForm="ngForm">
+      <div class="form-group">
+        <label for="machine">Máquina:</label>
+        <select id="machine" name="machine" class="form-control" [(ngModel)]="reservation.idMachine" (change)="calculateCost()" required>
+          <option *ngFor="let machine of machines" [value]="machine.idMachine">{{ machine.machineName }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="startTime">Hora de Inicio:</label>
+        <input type="datetime-local" id="startTime" name="startTime" class="form-control" [(ngModel)]="reservation.startTime" (change)="calculateCost()" required>
+      </div>
+      <div class="form-group">
+        <label for="endTime">Hora de Fin:</label>
+        <input type="datetime-local" id="endTime" name="endTime" class="form-control" [(ngModel)]="reservation.endTime" (change)="calculateCost()" required>
+      </div>
+      <div class="form-group">
+        <label for="cost">Costo:</label>
+        <input type="number" id="cost" name="cost" class="form-control" [value]="reservation.cost" readonly>
+      </div>      
+      <button type="submit" class="btn btn-primary" (click)="createCheckoutSession()" data-bs-toggle="modal" data-bs-target="#qrModal">Reservar</button>
+    </form>
 
-  <!-- Debugging: Mostrar las máquinas en un label -->
-  <div>
-    <label>Máquinas Disponibles:</label>
-    <div *ngFor="let machine of machines">
-      {{ machine.machineName }} (ID: {{ machine.idMachine }})
+    <div class="available-machines">
+      <label>Máquinas Disponibles Ahora:</label>
+      <div *ngFor="let range of getTariffRanges()" class="machine-range-group">
+        <h3 class="range-title">{{ range }}</h3>
+        <ng-container *ngFor="let machine of machines">
+          <div *ngIf="getTariffRange(machine.idMachine) === range && machine.machineStatus === 'available'" class="machine-item">
+            <div class="machine-name">{{ machine.machineName }}</div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  
+
+<!-- Modal -->
+<div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #132d46;">
+        <h5 class="modal-title" id="qrModalLabel" style="color: #ffffff;">Escanea el código QR para pagar</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #01c38e;"></button>
+      </div>
+      <div class="modal-body d-flex justify-content-center align-items-center">
+        <img [src]="qrCodeUrl" alt="QR Code" *ngIf="qrCodeUrl" class="img-fluid qr-code">
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" routerLink="/reserve" (click)="closeModal()">OK</button>
+      </div>
     </div>
   </div>
 </div>

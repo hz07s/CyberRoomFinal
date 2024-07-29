@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-=======
-
 from django.contrib.auth import authenticate
 from rest_framework import generics, status
->>>>>>> 9048d795664d6b642211587491fd8bacfdd6a656
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from rest_framework import generics, viewsets, status
@@ -13,12 +9,6 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import serializers
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-from .models import (
-    User,
->>>>>>> 9048d795664d6b642211587491fd8bacfdd6a656
 from rest_framework.authtoken.models import Token
 from rest_framework_simplejwt.state import TokenBackend
 from rest_framework_simplejwt.token_blacklist.models import BlacklistedToken, OutstandingToken
@@ -37,7 +27,6 @@ from .serializers import (
     UserSerializer,
     UserManageSerializer,
     UserManageCreateSerializer,
-<<<<<<< HEAD
     CreditCardSerializer,
     TariffSerializer,
     MachineSerializer,
@@ -45,9 +34,6 @@ from .serializers import (
     TransactionSerializer,
     EventSerializer,
     PromotionSerializer,
-=======
-<<<<<<< HEAD
->>>>>>> 9048d795664d6b642211587491fd8bacfdd6a656
 )
 
 # USER API's VIEW
@@ -83,24 +69,6 @@ class UserRegister(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-<<<<<<< HEAD
-class UserLogin(APIView):
-    permission_classes = [AllowAny]
-
-    def post(self, request):
-        username = request.data.get('username')
-        password = request.data.get('password')
-        user = authenticate(username=username, password=password)
-        if user:
-            refresh = RefreshToken.for_user(user)
-            return Response({
-                'refresh': str(refresh),
-                'access': str(refresh.access_token),
-            })
-        return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-
-=======
->>>>>>> 9048d795664d6b642211587491fd8bacfdd6a656
 class UserLogout(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -164,7 +132,6 @@ class UserUpdateApiView(generics.UpdateAPIView):
 class UserDeleteApiView(generics.DestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserManageSerializer
-<<<<<<< HEAD
     lookup_field = 'id'
 
 # CREDITCARD API's VIEW
@@ -291,254 +258,6 @@ class EventUpdateAPIView(generics.UpdateAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
     lookup_field = 'id'
-=======
-    CreditCardSerializer,
-    TariffSerializer,
-    MachineSerializer,
-    ReservationSerializer,
-    TransactionSerializer,
-    EventSerializer,
-    PromotionSerializer,
-)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 9048d795664d6b642211587491fd8bacfdd6a656
 
 
 # PROMOTION API's VIEW
@@ -559,7 +278,6 @@ class PromotionDeleteAPIView(generics.DestroyAPIView):
 class PromotionUpdateAPIView(generics.UpdateAPIView):
     queryset = Promotion.objects.all()
     serializer_class = PromotionSerializer
-<<<<<<< HEAD
     lookup_field = 'id'
 
 from rest_framework.decorators import api_view
@@ -618,6 +336,3 @@ def create_checkout_session(request):
 
 
     # ----------------------------------------- END -----------------------------------------    
-=======
-    lookup_field = 'id'
->>>>>>> 9048d795664d6b642211587491fd8bacfdd6a656

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { loadStripe } from '@stripe/stripe-js';
 import { MachineService } from '../services/machine.service';
-import { UserService } from '../services/user.service';
 import { Reservation } from '../models/reservation';
 import { Machine } from '../models/machine';
-import { User } from '../models/user.model';
+import { Tariff } from '../models/tariff';
+declare let bootstrap: any;
 
 @Component({
   selector: 'app-reserve',
@@ -13,74 +12,100 @@ import { User } from '../models/user.model';
   styleUrls: ['./reserve.component.css']
 })
 export class ReserveComponent implements OnInit {
-  stripe: any;
-  sessionId: string = '';
   machines: Machine[] = [];
+  tariffs: Tariff[] = [];
   reservation: Reservation = {
     id: 0,
-    idUser: 0,  // Inicialmente en 0, será actualizado con el ID del usuario
+    idUser: 0,
     idMachine: 0,
     startTime: new Date(),
     endTime: new Date(),
     cost: 0,
     reservationStatus: 'pending'
   };
-  user: User | null = null;
-
+  qrCodeUrl: string | null = null;
   constructor(
     private http: HttpClient,
-    private machineService: MachineService,
-    private userService: UserService
+    private machineService: MachineService
   ) { }
 
-  async ngOnInit() {
-    this.stripe = await loadStripe('pk_test_51PfA8cRppbh7POuNM08iGaR5wlUOcUbDwnvA1NsiNvxD1s7M1t0UXtaHmzFoWfzXqau1GpeGWurAzvfgSUfgdFtP00BFZrY0Rm');
+  ngOnInit() {
     this.loadMachines();
-    this.loadUserProfile();
+    this.machineService.getTariffs().subscribe(tariffs => {
+      console.log('Tarifas cargadas:', tariffs);  // Agrega un log para verificar las tarifas
+      this.tariffs = tariffs;
+    }, error => {
+      console.error('Error al cargar tarifas:', error);
+    });
   }
 
   loadMachines() {
-    this.machineService.getMachines()
-      .subscribe((data: Machine[]) => {
-        console.log('Máquinas recibidas:', data);
-        this.machines = data;
-      });
-  }
-
-  loadUserProfile() {
-    this.userService.getProfile()
-      .subscribe((profile: User) => {
-        console.log('Perfil del usuario:', profile);
-        if (profile.id !== undefined) {  // Verifica si el ID está definido
-          this.reservation.idUser = profile.id;
-        } else {
-          console.error('El perfil del usuario no tiene un ID definido.');
-        }
-      }, error => {
-        console.error('Error al obtener el perfil del usuario:', error);
-      });
-  }
-
-  async createCheckoutSession() {
-    this.http.post('http://localhost:8000/api/create-checkout-session/', this.reservation)
-      .subscribe((data: any) => {
-        this.sessionId = data.id;
-        this.redirectToCheckout();
-      });
-  }
-
-  async redirectToCheckout() {
-    const { error } = await this.stripe.redirectToCheckout({
-      sessionId: this.sessionId,
+    this.machineService.getMachines().subscribe((data: Machine[]) => {
+      this.machines = data;
     });
+  }
 
-    if (error) {
-      console.error(error);
+  calculateCost() {
+    if (!this.reservation.idMachine || !this.reservation.startTime || !this.reservation.endTime) {
+      this.reservation.cost = 0;
+      return;
     }
+
+    const startTime = new Date(this.reservation.startTime);
+    const endTime = new Date(this.reservation.endTime);
+
+    if (startTime >= endTime) {
+      this.reservation.cost = 0;
+      return;
+    }
+
+    // Calcula la duración en horas
+    const durationInHours = Math.ceil((endTime.getTime() - startTime.getTime()) / (1000 * 60 * 60));
+    console.log('Duración en horas:', durationInHours);
+
+    // Obtén la tarifa para la máquina seleccionada
+    const tariffRange = this.getTariffRange(this.reservation.idMachine);
+    console.log('Rango de tarifa:', tariffRange);
+
+    // Encuentra la tarifa correspondiente al rango
+    const tariff = this.tariffs.find(t => t.tarifRange === tariffRange);
+
+    console.log('Tarifas disponibles:', this.tariffs);
+    console.log('Tarifa encontrada:', tariff);
+
+    if (tariff) {
+      this.reservation.cost = durationInHours * tariff.cost;
+    } else {
+      this.reservation.cost = 0;
+    }
+    console.log('Costo calculado:', this.reservation.cost);
   }
 
   onSubmit() {
     console.log('Reserva realizada:', this.reservation);
-    this.createCheckoutSession();
+  }
+
+  getTariffRange(idMachine: number): string {
+    const numericIdMachine = Number(idMachine);
+    const tariff = this.tariffs.find(t => t.id === numericIdMachine);
+    return tariff ? tariff.tarifRange : 'Desconocido';
+  }
+
+  closeModal() {
+    // Cierra el modal manualmente
+    const modalElement = document.getElementById('qrModal');
+    if (modalElement) {
+      const modal = bootstrap.Modal.getInstance(modalElement);
+      modal?.hide();
+    }
+  }
+
+  createCheckoutSession() {
+    this.qrCodeUrl = 'assets/images/qr_yape.jpg';
+  }
+
+  getTariffRanges(): string[] {
+    const ranges = new Set(this.tariffs.map(tariff => tariff.tarifRange));
+    return Array.from(ranges);
   }
 }

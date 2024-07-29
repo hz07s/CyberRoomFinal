@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user.model';
+import { Router } from '@angular/router'; 
 declare var bootstrap: any;
 
 @Component({
@@ -34,10 +35,18 @@ export class UserComponent {
   passwordVisible = false;
   registerPasswordVisible = false;
 
-  constructor(private userService: UserService) {}
+  constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
     this.getUserProfile();
+    window.onload = () => {
+      const postReloadAction = localStorage.getItem('postReloadAction');
+      const user = localStorage.getItem('user');
+      if (postReloadAction === 'true') {
+        alert('Bienvenido ' + user);
+        localStorage.removeItem('postReloadAction'); 
+      }
+    };
   }
 
   getUserProfile(): void {
@@ -56,10 +65,24 @@ export class UserComponent {
     this.userService.register(this.user).subscribe(
       (response) => {
         console.log('Registro exitoso:', response);
+        alert('Registro exitoso');
         this.closeRegisterModal();
+        this.user = {
+          username: '',
+          email: '',
+          password: '',
+          confirmPassword: ''
+        };
       },
       (error) => {
         console.error('Error en el registro:', error);
+        alert('Error al registrar. Verifique sus datos');
+        this.user = {
+          username: '',
+          email: '',
+          password: '',
+          confirmPassword: ''
+        };
       }
     );
   }
@@ -86,12 +109,23 @@ export class UserComponent {
         localStorage.setItem('access_token', response.access);
         localStorage.setItem('refresh_token', response.refresh);
         localStorage.setItem('user_type', response.user_type);
+        localStorage.setItem('user', this.credentials.username);
         this.refreshToken = response.refresh;
         this.getUserProfile();
         this.closeLoginModal();
+        localStorage.setItem('postReloadAction', 'true');
+        this.router.navigate(['/home']).then(() => {
+          // Recarga la página después de la redirección
+          window.location.reload();
+        });
       },
       (error) => {
         console.error('Login error:', error);
+        alert('Error al iniciar sesión. Por favor, revisa tus credenciales y vuelve a intentarlo.');
+        this.credentials = {
+          username: '',
+          password: ''
+        };
       }
     );
   }
@@ -105,6 +139,7 @@ export class UserComponent {
           localStorage.removeItem('access_token');
           localStorage.removeItem('refresh_token');
           localStorage.removeItem('user_type');
+          localStorage.removeItem('user');
           console.log("removido");
         },
         (error) => {
